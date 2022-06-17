@@ -16,7 +16,7 @@ class Post(models.Model):
         )
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
-    description = models.TextField()
+    content = models.TextField()
     image = CloudinaryField('image', default='placeholder')
     excerpt = models.TextField(blank=True)
     status = models.IntegerField(choices=STATUS, default=0)
