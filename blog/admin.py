@@ -8,4 +8,7 @@ class PostAdmin(SummernoteModelAdmin):
     """
     use summernote for the blog content
     """
-    summernote_fields = ('content')
+    list_display = ('title', 'status', 'created_on')
+    list_filter = ('status', 'created_on')
+    summernote_fields = ('content', )
+    search_fields = ['title', 'content']
