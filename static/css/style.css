@@ -1,0 +1,25 @@
+body {
+    font-family: 'Nunito Sans', sans-serif;
+    background-color: #495D63;
+}
+
+.logo {
+    font-weight: 600;
+    color: ;
+}
+
+h1, h2, h3, h4, h5, h6, {
+    font-weight: 700;
+}
+
+.footer-container {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
