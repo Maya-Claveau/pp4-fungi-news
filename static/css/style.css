@@ -1,16 +1,27 @@
 body {
     font-family: 'Nunito Sans', sans-serif;
-    background-color: #495D63;
+    background-color: #546a7b;
 }
 
 .logo {
-    font-weight: 600;
-    color: #fac8cd;
+    height: 90px;
+    width: 20%;
 }
-.header-image {
-    height: 700px;
-    width: 100%;
+
+.navbar-toggler-icon {
+    background-color: #fdfdff;
 }
+
+.nav-item > a {
+    color: #fdfdff !important;
+
+}
+
+/* .header-image {
+    height: 500px;
+    width: 80%;
+    text-align: center;
+} */
 
 h1, h2, h3, h4, h5, h6, {
     font-weight: 700;
