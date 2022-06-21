@@ -1,24 +1,28 @@
 {% extends "base.html" %}
 
-{% block content %}
+{% block header %}
+    <header>
+        {% load static %}
+        <img class="img-fluid header-image" src="https://res.cloudinary.com/mayathebee/image/upload/v1655812787/static/images/nft-landing-page_kbmjuy.png" alt="An image with human and tech board">
+    </header>
+{% endblock %}
 
-<div class="container-fluid">
-    <img src = "" class="" alt="">
-</div>
-<div class="container-fluid">
-    <div class="row">
-        <!-- Blog Entries Column -->
-        <div class="col-12 mt-3 left">
-            <div class="row">
-                {% for post in post_list %}
+{% block content %}
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Blog Entries Column -->
+            <div class="col-12 mt-3 left">
+                <div class="row">
+                    {% for post in post_list %}
                     <div class="col-md-4">
                         <div class="card mb-4">
                             <div class="card-body">
                                 <div class="image-container">
                                     {% if "placeholder" in post.image.url %}
-                                    <img src="" class="card-img-top" alt="">
+                                    <img src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg"
+                                        class="card-img-top" alt="A laptop with code on the screen">
                                     {% else %}
-                                    <img src=" {{ post.image.url }} " class="card-img-top" alt="">
+                                    <img src=" {{ post.image.url }} " class="card-img-top" alt="An uploaded image from the user">
                                     {% endif %}
                                     <div class="image-flash">
                                         <p class="author">Author: {{ post.author }}</p>
@@ -29,32 +33,33 @@
                                     <p class="card-text">{{ post.excerpt }}</p>
                                 </a>
                                 <hr />
-                                <p class="card-text text-muted h6">{{ post.created_on }} <i class="far fa-heart"></i>{{ post.number_of_likes}}</p>
+                                <p class="card-text text-muted h6">{{ post.created_on }} <i
+                                        class="far fa-heart"></i>{{ post.number_of_likes}}</p>
                             </div>
                         </div>
                     </div>
-                {% if forloop.counter|divisibleby:3 %}
+                    {% if forloop.counter|divisibleby:3 %}
                 </div>
                 <div class="row">
-                {% endif %}
-                {% endfor %}
+                    {% endif %}
+                    {% endfor %}
+                </div>
             </div>
         </div>
+        {% if is_paginated %}
+        <nav aria-label="Page navigation">
+            <ul class="pagination justify-content-center">
+                {% if page_obj.has_previous %}
+                <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV </a></li>
+                {% endif %}
+                {% if page_obj.has_next %}
+                <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
+
+                {% endif %}
+            </ul>
+        </nav>
+        {% endif %}
+
     </div>
-    {% if is_paginated %}
-    <nav aria-label="Page navigation">
-        <ul class="pagination justify-content-center">
-            {% if page_obj.has_previous %}
-            <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV </a></li>
-            {% endif %}
-            {% if page_obj.has_next %}
-            <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
 
-            {% endif %}
-        </ul>
-    </nav>
-    {% endif %}
-
-</div>
-
-{%endblock%}
+{% endblock %}
