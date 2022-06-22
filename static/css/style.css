@@ -8,7 +8,7 @@ a {
     color: #fdfdff;
 }
 
- /* logo and Nav Bar section */
+/* logo and Nav Bar section */
 /* .navbar {
     z-index: 1020;
 } */
@@ -22,6 +22,7 @@ a {
     color: #fdfdff;
     font-weight: 700;
 }
+
 .navbar-toggler-icon {
     background-color: #fdfdff;
 }
@@ -45,14 +46,94 @@ a {
     font-weight: 600;
 }
 
- /* footer section with social links */
+/* footer section with social links */
+.footer-for-lg {
+    display: none;
+}
+
 .footer-container {
     display: flex;
     flex-direction: column-reverse;
     align-items: center;
     font-size: 18px;
+    background-color: #393d3f;
 }
 
 .social-links {
     font-size: larger;
+}
+
+
+/* for medium screen size between 750px and 1200px width */
+@media only screen and (max-width: 1199px) and (min-width: 768px) {
+    body {
+        font-size: larger;
+    }
+
+    .brand-name {
+        background: -webkit-linear-gradient(#62929e, #ffffff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .footer-for-lg {
+        display: flex;
+        justify-content: space-between;
+        color: #fdfdff;
+    }
+
+    .footer-list {
+        list-style: none;
+        color: #fdfdff !important;
+    }
+
+    .footer-link > a {
+        color: #fdfdff !important;
+    }
+}
+
+
+/* For large screen size from 1200px width and above*/
+@media screen and (min-width: 1200px) {
+    body {
+        font-size: large;
+    }
+
+    .navbar-brand {
+        margin-left: 15px;
+        font-size: larger;
+    }
+
+    .brand-name {
+        background: -webkit-linear-gradient(#62929e, #ffffff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .nav-link {
+        margin-right: 15px;
+    }
+
+    /* .footer-container {
+        display: flex;
+        flex-direction: row;
+        align-items: baseline;
+        justify-content: space-around;
+    } */
+
+    .footer-for-lg {
+        display: flex;
+        justify-content: space-between;
+        color: #fdfdff;
+    }
+
+    .footer-list {
+        list-style: none;
+        color: #fdfdff !important;
+    }
+
+    .footer-link > a {
+        color: #fdfdff !important;
+        font-size: medium;
+    }
 }
