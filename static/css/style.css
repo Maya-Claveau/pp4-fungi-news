@@ -3,6 +3,11 @@ body {
     background-color: #546a7b;
 }
 
+a {
+    text-decoration: none;
+    color: #fdfdff;
+}
+
 .logo {
     height: 90px;
     width: 20%;
@@ -17,14 +22,18 @@ body {
 
 }
 
-/* .header-image {
-    height: 500px;
-    width: 80%;
-    text-align: center;
-} */
+.header-image {
+    height: 200px;
+    width: 100%;
+}
 
 h1, h2, h3, h4, h5, h6, {
     font-weight: 700;
+}
+
+.card-title,
+.card-text {
+    color: #393d3f;
 }
 
 .footer-container {
@@ -32,11 +41,6 @@ h1, h2, h3, h4, h5, h6, {
     align-items: flex-end;
     justify-content: space-between;
 
-}
-
-a {
-    text-decoration: none;
-    color: white;
 }
 
 .social-links {
