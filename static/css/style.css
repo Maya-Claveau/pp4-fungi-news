@@ -27,13 +27,17 @@ a {
     width: 100%;
 }
 
-h1, h2, h3, h4, h5, h6, {
+h1 {
     font-weight: 700;
 }
 
 .card-title,
 .card-text {
     color: #393d3f;
+}
+
+.card-title {
+    font-weight: 600;
 }
 
 .footer-container {
