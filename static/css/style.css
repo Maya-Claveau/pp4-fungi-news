@@ -8,11 +8,20 @@ a {
     color: #fdfdff;
 }
 
+ /* logo and Nav Bar section */
+.navbar {
+    z-index: 1020;
+}
+
 .logo {
     height: 90px;
     width: 20%;
 }
 
+.brand-name {
+    color: #fdfdff;
+    font-weight: 700;
+}
 .navbar-toggler-icon {
     background-color: #fdfdff;
 }
@@ -22,13 +31,9 @@ a {
 
 }
 
-.header-image {
-    height: 200px;
-    width: 100%;
-}
-
-h1 {
-    font-weight: 700;
+/* posts section */
+.card {
+    background-color: #fdfdff;
 }
 
 .card-title,
@@ -40,6 +45,7 @@ h1 {
     font-weight: 600;
 }
 
+ /* footer section with social links */
 .footer-container {
     display: flex;
     align-items: flex-end;
