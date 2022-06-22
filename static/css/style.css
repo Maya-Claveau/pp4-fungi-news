@@ -9,9 +9,9 @@ a {
 }
 
  /* logo and Nav Bar section */
-.navbar {
+/* .navbar {
     z-index: 1020;
-}
+} */
 
 .logo {
     height: 90px;
@@ -48,9 +48,9 @@ a {
  /* footer section with social links */
 .footer-container {
     display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-
+    flex-direction: column-reverse;
+    align-items: center;
+    font-size: 18px;
 }
 
 .social-links {
