@@ -27,9 +27,18 @@ a {
     background-color: #fdfdff;
 }
 
-.nav-item > a {
+.mynavbar a {
     color: #fdfdff !important;
+    margin-right: 30px;
+    border-bottom: 2px solid transparent;
+}
 
+.mynavbar a:hover {
+    border-bottom: 2px solid #62929e;
+}
+
+.active a {
+    border-bottom: 2px solid #62929e;
 }
 
 /* posts section */
