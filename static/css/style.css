@@ -1,3 +1,13 @@
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&display=swap');
+
+
+/* Remove unintended space */
+* {
+    margin: 0;
+    padding: 0;
+}
+
 body {
     font-family: 'Nunito Sans', sans-serif;
     background-color: #546a7b;
@@ -57,10 +67,6 @@ a {
     margin-top: 5px;
 }
 
-/* .hero-text {
-    color: #fdfdff;
-} */
-
 
 /* posts section */
 .card {
@@ -92,6 +98,24 @@ a {
 .social-links {
     font-size: larger;
 }
+
+
+/* Sign Up form
+.signup-bg {
+    background: url('https://res.cloudinary.com/mayathebee/image/upload/v1655995327/static/images/signup-bg-img_r5qs2f.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.glyphicon-pencil {
+    font-size: 35px;
+    color: #fdfdff;
+    float: right;
+    margin-top: 20px;
+} */
+
+
+
 
 
 /* for medium screen size between 750px and 1200px width */
