@@ -41,20 +41,26 @@ a {
     border-bottom: 2px solid #62929e;
 }
 
-.hero-image {
-    height: 600px;
+.bg-img {
+    background: url('https://res.cloudinary.com/mayathebee/image/upload/v1655987270/static/images/nft-hero-img-small_ycpjq5.png');
     width: 100%;
-    position: relative;
+    height: 500px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
 }
 
-.hero-text {
+.bg-img h1 {
+    text-shadow: 1px 2px #62929e;
+    background-color:#393d3f;
+    margin-bottom: 0;
+    margin-top: 5px;
+}
+
+/* .hero-text {
     color: #fdfdff;
-}
+} */
 
-
-
-;
-}
 
 /* posts section */
 .card {
@@ -100,6 +106,21 @@ a {
         -webkit-text-fill-color: transparent;
     }
 
+    .bg-img {
+        background: url('https://res.cloudinary.com/mayathebee/image/upload/v1655987233/static/images/nft-hero-img-mid_ci5fhw.png');
+        width: 100%;
+        height: 400px;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-attachment: fixed;
+    }
+
+    .bg-img h1 {
+    background-color: transparent;
+    margin-bottom: 3px;
+    margin-top: 10px;
+    }
+
     .footer-for-lg {
         display: flex;
         justify-content: space-between;
@@ -137,6 +158,21 @@ a {
     .nav-link {
         margin-right: 15px;
     }
+
+    .bg-img {
+        background: url('https://res.cloudinary.com/mayathebee/image/upload/v1655978977/static/images/nft-hero-img-lg.png');
+        height: 500px;
+        width: 100%;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-attachment: fixed;
+    }
+
+    .bg-img h1 {
+        background-color: transparent;
+        margin-bottom: 8px;
+        margin-top: 15px;
+        }
 
     /* .footer-container {
         display: flex;
