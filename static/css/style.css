@@ -41,6 +41,21 @@ a {
     border-bottom: 2px solid #62929e;
 }
 
+.hero-image {
+    height: 600px;
+    width: 100%;
+    position: relative;
+}
+
+.hero-text {
+    color: #fdfdff;
+}
+
+
+
+;
+}
+
 /* posts section */
 .card {
     background-color: #fdfdff;
@@ -96,7 +111,7 @@ a {
         color: #fdfdff !important;
     }
 
-    .footer-link > a {
+    .footer-link>a {
         color: #fdfdff !important;
     }
 }
@@ -141,7 +156,7 @@ a {
         color: #fdfdff !important;
     }
 
-    .footer-link > a {
+    .footer-link>a {
         color: #fdfdff !important;
         font-size: medium;
     }

@@ -3,9 +3,21 @@
 {% block header %}
 <header>
     {% load static %}
-    <img class="img-fluid header-image max-width: 100%; height: auto;"
-        src="https://res.cloudinary.com/mayathebee/image/upload/v1655968713/static/images/nft-landing-image-small_rgjkph.jpg"
-        alt="An image with human and tech board">
+    <div class="text-secondary text-left">
+        <div class="img-fluid overflow-hidden" style="max-width: 100%;">
+            <img src="https://res.cloudinary.com/mayathebee/image/upload/v1655978175/static/images/nft-landing-img-small.png"
+                class="img-fluid" alt="Men wearing VR glasses with tech board">
+            <h1 class="display-5 fw-bold text-white text-center mt-2">NFT News Blog</h1>
+            <div class="col-lg-6 mx-auto">
+                <p class="fs-5 mb-4 hero-text text-center">Welcome to Fungi News. A place to get the latest update and trendy news about NFT, where you also have the opportunity to share your NFT enthusiastic with
+                    others like you.</p>
+                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                    <button type="button" class="btn btn-outline-info btn-lg px-4 me-sm-3 fw-bold">Sign Up</button>
+                    <button type="button" class="btn btn-outline-light btn-lg px-4">Login</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </header>
 {% endblock %}
 
