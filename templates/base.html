@@ -55,7 +55,7 @@
                         <a class="nav-link" href="{% url 'register' %}">Sign Up</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Login</a>
+                        <a class="nav-link" href="{% url 'login' %}">Login</a>
                     </li>
                     {% endif %}
                 </ul>
@@ -65,7 +65,7 @@
 
     <section>
         {% block header %}
-        <!-- main image Goes here -->
+        <!-- hero image goes here -->
         {% endblock %}
     </section>
     <main class="flex-shrink-0 main-bg">
