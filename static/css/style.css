@@ -1,5 +1,6 @@
 /* Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&family=Rubik+Moonrocks&display=swap');
+
 
 
 /* Remove unintended space */
@@ -18,19 +19,40 @@ a {
     color: #fdfdff;
 }
 
-/* logo and Nav Bar section */
-/* .navbar {
-    z-index: 1020;
-} */
 
-.logo {
+
+/* .logo {
     height: 90px;
     width: 20%;
+} */
+
+.logo-bg {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background-color: #62929e;
+    display: inline-block;
+    text-align: center;
+}
+
+.logo {
+    font-family: Rubik-Moonrocks;
+    font-weight: 700;
+    color: #fdfdff;
+    font-size: 30px;
+}
+
+.brand-name-link {
+    margin-left: -260px;
+    position: fixed;
 }
 
 .brand-name {
-    color: #fdfdff;
     font-weight: 700;
+    background: -webkit-linear-gradient(#62929e, #ffffff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: large;
 }
 
 .navbar-toggler-icon {
@@ -124,12 +146,6 @@ a {
         font-size: larger;
     }
 
-    .brand-name {
-        background: -webkit-linear-gradient(#62929e, #ffffff);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }
-
     .bg-img {
         background: url('https://res.cloudinary.com/mayathebee/image/upload/v1655987233/static/images/nft-hero-img-mid_ci5fhw.png');
         width: 100%;
@@ -171,12 +187,6 @@ a {
     .navbar-brand {
         margin-left: 15px;
         font-size: larger;
-    }
-
-    .brand-name {
-        background: -webkit-linear-gradient(#62929e, #ffffff);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
     }
 
     .nav-link {

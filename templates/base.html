@@ -31,9 +31,8 @@
 
     <nav class="navbar navbar-expand-md me-2 navbar-light mynavbar">
         <div class="container-fluid">
-            <a class="navbar-brand" href="{% url 'home' %}"><span class="logo"><img
-                        src="https://res.cloudinary.com/mayathebee/image/upload/c_scale,w_70/v1655812800/static/images/logo-f-v2_fua69v.png"
-                        alt="Fungi News Logo"></span><span class="brand-name">Fungi News</span></a>
+            <div class="logo-bg"><p class="logo">F</p></div>
+            <a class="navbar-brand brand-name-link" href="{% url 'home' %}"></a><span class="brand-name">Fungi News</span></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
                 aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -60,6 +59,7 @@
                     {% endif %}
                 </ul>
             </div>
+
         </div>
     </nav>
 
