@@ -6,10 +6,14 @@
 
 {% block content %}
 <!-- sign up form -->
-<form action="" method="POST" class="form-group">
-    {% csrf_token %}
-    {{ form|crispy }}
-    <button type="submit" class="btn btn-success">Sign Up</button>
-</form>
+<div class="container">
+
+    <form action="" method="POST" class="form-group">
+        <p>Already have an account? Please click <a href="{% url 'login' %}">here</a> to login.</p>
+        {% csrf_token %}
+        {{ form|crispy }}
+        <button type="submit" class="btn btn-success">Sign Up</button>
+    </form>
+</div>
 
 {% endblock %}
