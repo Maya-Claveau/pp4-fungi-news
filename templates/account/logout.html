@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% load socialaccount %}
+
+{% block title %} Logout of your Account {% endblock %}
+
+{% block content %}
+<p class="text-white text-center mt-5">Are you sure you want to sign out?</p>
+<form action="{% url 'account_logout' %}" method="post" class="text-center">
+    {% csrf_token %}
+    {% if redirect_field_value %}
+    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+    {% endif %}
+    <input type="submit" value="Logout" class="btn btn-lg btn-outline-warning btn-block" />
+</form>
+
+{% endblock %}
