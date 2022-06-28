@@ -19,9 +19,10 @@ from register import views as v
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('accounts/', include('allauth.urls')),
     path('summernote/', include('django_summernote.urls')),
     path('', include('blog.urls'), name='blog_urls'),
     path('register/', v.register, name='register'),
     path('', include('django.contrib.auth.urls')),
-    path('accounts/', include('allauth.urls')),
+
 ]

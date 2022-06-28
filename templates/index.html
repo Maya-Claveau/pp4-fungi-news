@@ -1,8 +1,11 @@
 {% extends "base.html" %}
 
+{% load static %}
+
+<!-- page hero image section -->
+
 {% block header %}
 <header>
-    {% load static %}
     <div class="bg-img" title="Man wearing VR glasses with tech board">
         <div class="container-fluid">
             <div class="row p-4">
@@ -15,12 +18,12 @@
                         others like you.
                     </p>
                     <div class="gap-2 d-flex justify-content-center justify-content-md-start">
-                        <a href="{% url 'register' %}">
+                        <a href="{% url 'account_signup' %}">
                             <button type="button" class="btn btn-info btn-lg px-4 me-sm-3 fw-bold">
                                 Sign Up
                             </button>
                         </a>
-                        <a href="{% url 'login' %}">
+                        <a href="{% url 'account_login' %}">
                             <button type="button" class="btn btn-outline-light btn-lg px-4">
                                 Login
                             </button>
@@ -32,6 +35,7 @@
 </header>
 {% endblock %}
 
+<!-- page posts section -->
 {% block content %}
 <h2 class="articles-title">Articles</h2>
 <div class="container">

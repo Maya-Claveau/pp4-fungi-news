@@ -136,7 +136,6 @@ a {
 
 
 
-
 /* for medium screen size between 750px and 1200px width */
 @media only screen and (max-width: 1199px) and (min-width: 768px) {
     body {
@@ -157,6 +156,8 @@ a {
         margin-bottom: 3px;
         margin-top: 10px;
     }
+
+
 
     .footer-for-lg {
         display: flex;
