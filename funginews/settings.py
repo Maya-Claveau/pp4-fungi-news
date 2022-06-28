@@ -46,7 +46,6 @@ INSTALLED_APPS = [
     'cloudinary_storage',
     'django.contrib.staticfiles',
     'django.contrib.sites',
-    'blog',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -54,6 +53,10 @@ INSTALLED_APPS = [
     'cloudinary',
     'django_summernote',
     'crispy_forms',
+    # local
+    'blog',
+    'funginews',
+    'register',
 ]
 
 SITE_ID = 1

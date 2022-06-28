@@ -8,11 +8,11 @@
 <!-- sign up form -->
 <div class="container">
 
-    <form action="" method="POST" class="form-group">
-        <p>Already have an account? Please click <a href="{% url 'login' %}">here</a> to login.</p>
+    <form action="" method="POST" class="form-group mb-1">
+        <p>Already have an account? Please click <a href=" {% url 'account_login' %}">here</a> to login.</p>
         {% csrf_token %}
         {{ form|crispy }}
-        <button type="submit" class="btn btn-success">Sign Up</button>
+        <button type="submit" class="btn btn-lg btn-success btn-block mt-2">Sign Up</button>
     </form>
 </div>
 
