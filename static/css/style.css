@@ -60,10 +60,9 @@ a {
 .bg-img {
     background: url('https://res.cloudinary.com/mayathebee/image/upload/v1656263114/static/images/hero-img-sm_dg7doa.jpg');
     width: 100%;
-    height: 500px;
+    height: 450px;
     background-repeat: no-repeat;
     background-position: center;
-    background-attachment: fixed;
 }
 
 .bg-img h1 {

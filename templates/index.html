@@ -5,98 +5,98 @@
 <!-- page hero image section -->
 
 {% block header %}
-<header>
-    <div class="bg-img" title="Man wearing VR glasses with tech board">
-        <div class="container-fluid">
-            <div class="row p-4">
-                <div class="col-12 col-md-6 col-lg-4 pt-5">
-                    <h1 class="fw-bold text-white text-center text-md-start">NFT News Blog</h1>
-                    <p class="fs-5 mb-4 text-white text-center text-md-start">Welcome to Fungi News. A place to get the
-                        latest
-                        update and trendy news about NFT, where you also have the opportunity to share your NFT
-                        enthusiastic with
-                        others like you.
-                    </p>
-                    <div class="gap-2 d-flex justify-content-center justify-content-md-start">
-                        <a href="{% url 'account_signup' %}">
-                            <button type="button" class="btn btn-info btn-lg px-4 me-sm-3 fw-bold">
-                                Sign Up
-                            </button>
-                        </a>
-                        <a href="{% url 'account_login' %}">
-                            <button type="button" class="btn btn-outline-light btn-lg px-4">
-                                Login
-                            </button>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-</header>
-{% endblock %}
 
-<!-- page posts section -->
-{% block content %}
-<h2 class="articles-title">Articles</h2>
-<div class="container">
-    <div class="row">
-        <!-- Blog Entries Column -->
-        <div class="col-12 mt-3 left">
-            <div class="row">
-                {% for post in post_list %}
-                <div class="col-md-4">
-                    <div class="card mb-4">
-                        <div class="card-body">
-                            <div class="image-container">
-                                {% if "placeholder" in post.image.url %}
-                                <img src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg"
-                                    class="card-img-top" alt="A laptop with code on the screen">
-                                {% else %}
-                                <img src=" {{ post.image.url }} " class="card-img-top"
-                                    alt="An uploaded image from the user">
-                                {% endif %}
-                            </div>
-                            <p class="author">Author: {{ post.author }}</p>
-
-                            <a href="#" class="post-link">
-                                <h3 class="card-title">{{ post.title }}</h3>
-                                <p class="card-text">{{ post.excerpt }}</p>
-                            </a>
-                            <hr />
-                            <div class="card-info d-flex justify-content-between">
-                                <p class="card-text text-muted h6">{{ post.created_on }}</p>
-                                <p class="like-comment"><i class="far fa-heart"></i> {{ post.number_of_likes}}</p>
-                            </div>
-                        </div>
-                    </div>
+<div class="bg-img" title="Man wearing VR glasses with tech board">
+    <div class="container-fluid">
+        <div class="row p-4">
+            <div class="col-12 col-md-6 col-lg-4 pt-2">
+                <h1 class="fw-bold text-white text-center text-md-start mb-1">NFT News Blog</h1>
+                <p class="fs-5 mb-4 text-white text-center text-md-start">Welcome to Fungi News. A place to get the
+                    latest
+                    update and trendy news about NFT, where you also have the opportunity to share your NFT
+                    enthusiastic with
+                    others like you.
+                </p>
+                <div class="gap-2 d-flex justify-content-center justify-content-md-start">
+                    <a href="{% url 'account_signup' %}">
+                        <button type="button" class="btn btn-info btn-lg px-4 me-sm-3 fw-bold">
+                            Sign Up
+                        </button>
+                    </a>
+                    <a href="{% url 'account_login' %}">
+                        <button type="button" class="btn btn-outline-light btn-lg px-4">
+                            Login
+                        </button>
+                    </a>
                 </div>
-                {% if forloop.counter|divisibleby:3 %}
-            </div>
-            <div class="row">
-                {% endif %}
-                {% endfor %}
             </div>
         </div>
     </div>
 
-    <!-- pagination code copied from I Think Therefore I Blog project walkthrough -->
-    {% if is_paginated %}
-    <nav aria-label="Page navigation">
-        <ul class="pagination justify-content-center">
-            {% if page_obj.has_previous %}
-            <li class="page-item">
-                <a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; Previous </a>
-            </li>
-            {% endif %}
+    {% endblock %}
 
-            {% if page_obj.has_next %}
-            <li class="page-item">
-                <a href="?page={{ page_obj.next_page_number }}" class="page-link">Next &raquo;</a></li>
-            {% endif %}
-        </ul>
-    </nav>
-    {% endif %}
+    <!-- page posts section -->
+    {% block content %}
+    <h2 class="articles-title">Articles</h2>
+    <div class="container">
+        <div class="row">
+            <!-- Blog Entries Column -->
+            <div class="col-12 mt-3 left">
+                <div class="row">
+                    {% for post in post_list %}
+                    <div class="col-md-4">
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <div class="image-container">
+                                    {% if "placeholder" in post.image.url %}
+                                    <img src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg"
+                                        class="card-img-top" alt="A laptop with code on the screen">
+                                    {% else %}
+                                    <img src=" {{ post.image.url }} " class="card-img-top"
+                                        alt="An uploaded image from the user">
+                                    {% endif %}
+                                </div>
+                                <p class="author">Author: {{ post.author }}</p>
 
-</div>
+                                <a href="#" class="post-link">
+                                    <h3 class="card-title">{{ post.title }}</h3>
+                                    <p class="card-text">{{ post.excerpt }}</p>
+                                </a>
+                                <hr />
+                                <div class="card-info d-flex justify-content-between">
+                                    <p class="card-text text-muted h6">{{ post.created_on }}</p>
+                                    <p class="like-comment"><i class="far fa-heart"></i> {{ post.number_of_likes}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% if forloop.counter|divisibleby:3 %}
+                </div>
+                <div class="row">
+                    {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
 
-{% endblock %}
+        <!-- pagination code copied from I Think Therefore I Blog project walkthrough -->
+        {% if is_paginated %}
+        <nav aria-label="Page navigation">
+            <ul class="pagination justify-content-center">
+                {% if page_obj.has_previous %}
+                <li class="page-item">
+                    <a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; Previous </a>
+                </li>
+                {% endif %}
+
+                {% if page_obj.has_next %}
+                <li class="page-item">
+                    <a href="?page={{ page_obj.next_page_number }}" class="page-link">Next &raquo;</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+        {% endif %}
+
+    </div>
+
+    {% endblock %}
