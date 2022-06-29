@@ -5,28 +5,28 @@ from django.contrib import messages
 
 
 # Create your views here.
-def register(response):
+def register(request):
     """
     handle the user registration process
     """
-    if response.method == "POST":
-        form = RegisterForm(response.POST)
+    if request.method == "POST":
+        form = RegisterForm(request.POST)
         if form.is_valid():
             form.save()
         return redirect('/')
     else:
         form = RegisterForm()
-    return render(response, 'register/register.html', {'form': form})
+    return render(request, 'register/register.html', {'form': form})
 
 
-def login_user(response):
+def login_user(request):
     """
     handle the user login process
     """
-    if response.method == "POST":
-        username = response.POST['username']
-        password = response.POST['password']
-        user = authenticate(response, username=username, password=password)
+    if request.method == "POST":
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(request, username=username, password=password)
         if user is not None:
             login(response, user)
             return redirect('/')
@@ -36,12 +36,12 @@ def login_user(response):
             ))
             return redirect('login')
     else:
-        return render(response, 'authenticate/login.html', {})
+        return render(request, 'authenticate/login.html', {})
 
 
-def logout_user(response):
+def logout_user(request):
     """
     handle the user logout process
     """
-    logout(messages.success(response, ('You were logged out.')))
+    logout(messages.success(request, ('You were logged out.')))
     return redirect('/')

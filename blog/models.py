@@ -11,6 +11,7 @@ class Post(models.Model):
     """
 
     title = models.CharField(max_length=200, unique=True)
+    slug = models.SlugField(max_length=200, unique=True, null=True)
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="blog_posts"
     )
@@ -39,6 +40,9 @@ class Post(models.Model):
         total number of likes on a post
         """
         return self.likes.count()
+
+    def get_absolute_url(self):
+        return reverse("post_detail", kwargs={"slug": self.slug})
 
 
 class Comment(models.Model):
