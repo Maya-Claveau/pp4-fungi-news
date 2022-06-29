@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
+from django.template.defaultfilters import slugify
+from django.urls import reverse
 
 STATUS = ((0, "Draft"), (1, "Published"))
 
@@ -11,7 +13,7 @@ class Post(models.Model):
     """
 
     title = models.CharField(max_length=200, unique=True)
-    slug = models.SlugField(max_length=200, unique=True, null=True)
+    slug = models.SlugField(null=True, unique=True)
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="blog_posts"
     )
@@ -21,7 +23,11 @@ class Post(models.Model):
     image = CloudinaryField('image', default='placeholder')
     excerpt = models.TextField(blank=True)
     status = models.IntegerField(choices=STATUS, default=0)
-    likes = models.ManyToManyField(User, related_name='blogpost_like', blank=True)
+    likes = models.ManyToManyField(
+        User,
+        related_name='blogpost_like',
+        blank=True
+        )
 
     class Meta:
         """
@@ -42,7 +48,22 @@ class Post(models.Model):
         return self.likes.count()
 
     def get_absolute_url(self):
-        return reverse("post_detail", kwargs={"slug": self.slug})
+        """
+        copied from
+        https://learndjango.com/tutorials/django-slug-tutorial#slugs
+        so the slug field can be added to the database
+        """
+        return reverse('post_detail', kwargs={'slug': self.slug})
+
+    def save(self, *args, **kwargs):
+        """
+        copied from
+        https://learndjango.com/tutorials/django-slug-tutorial#slugs
+        use slugify to prepopulate the slug field from user input
+        """
+        if not self.slug:
+            self.slug = slugify(self.title)
+        return super().save(*args, **kwargs)
 
 
 class Comment(models.Model):
