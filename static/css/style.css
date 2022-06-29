@@ -100,6 +100,11 @@ a {
     font-weight: 600;
 }
 
+.post-img {
+    height: 250px;
+    width: 100%;
+}
+
 /* footer section with social links */
 .footer-for-lg {
     display: none;
@@ -156,6 +161,10 @@ a {
         margin-top: 10px;
     }
 
+    .post-img {
+        height: 280px;
+        width: 100%;
+    }
 
 
     .footer-for-lg {
@@ -202,6 +211,11 @@ a {
         background-color: transparent;
         margin-bottom: 8px;
         margin-top: 15px;
+    }
+
+    .post-img {
+        height: 400px;
+        width: 100%;
     }
 
     /* .footer-container {

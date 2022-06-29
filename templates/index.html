@@ -50,9 +50,9 @@
                                 <div class="image-container">
                                     {% if "placeholder" in post.image.url %}
                                     <img src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg"
-                                        class="card-img-top" alt="A laptop with code on the screen">
+                                        class="card-img-top post-img" alt="A laptop with code on the screen">
                                     {% else %}
-                                    <img src=" {{ post.image.url }} " class="card-img-top"
+                                    <img src=" {{ post.image.url }} " class="card-img-top post-img"
                                         alt="An uploaded image from the user">
                                     {% endif %}
                                 </div>
