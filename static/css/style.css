@@ -104,6 +104,10 @@ a {
     color: #62929e;
 }
 
+.card-bg {
+    background-color: #62929e;
+    color: #fdfdff !important;
+}
 
 .post-img {
     max-height: 250px;
