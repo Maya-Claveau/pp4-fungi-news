@@ -101,8 +101,13 @@ a {
 }
 
 .post-img {
-    height: 250px;
+    max-height: 250px;
     width: 100%;
+}
+
+.btn-like {
+    border-style: none;
+    background-color: transparent;
 }
 
 /* footer section with social links */
@@ -162,10 +167,13 @@ a {
     }
 
     .post-img {
-        height: 280px;
+        max-height: 300px;
         width: 100%;
     }
 
+    .btn-like {
+        font-size: 20px;
+    }
 
     .footer-for-lg {
         display: flex;
@@ -214,7 +222,7 @@ a {
     }
 
     .post-img {
-        height: 400px;
+        max-height: 450px;
         width: 100%;
     }
 

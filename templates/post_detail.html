@@ -5,7 +5,7 @@
 <div class="masthead">
     <div class="container">
         <div class="row g-0">
-            <div class="col-md-6 masthead-text">
+            <div class="col-md-6 masthead-text text-white">
                 <h1 class="post-title">
                     {{ post.title }}
                 </h1>
@@ -29,7 +29,23 @@
                 <p class="card-text">{{ post.content | safe}}</p>
                 <div class="row">
                     <div class="col-1">
-                        <strong class="text-secondary"><i class="far fa-heart"></i>{{ post.number_of_likes }} </strong>
+                        <strong>
+                            {% if user.is_authenticated %}
+                            <form class="d-line" action="{% url 'post_like' post.slug %}" method="POST">
+                                {% csrf_token %}
+                                {% if liked %}
+                                <button type="submit" name="post_id" value="{{ post.slug }}" class="btn-like"
+                                    data-bs-toggle="button"><i class="fa-solid fa-heart-circle-check"></i></button>
+                                {% else %}
+                                <button type="submit" name="post_id" value="{{ post.slug }}" class="btn-like"><i
+                                        class="fal fa-heart-circle"></i></button>
+                                {% endif %}
+                            </form>
+                            {% else %}
+                            <span class="text-secondary"><i class="fal fa-heart-circle"></i></span>
+                            {% endif %}
+                            <span class="text-secondary">{{ post.number_of_likes }}</span>
+                        </strong>
                     </div>
                     <div class="col-1">
                         {% with comments.count as total_comments %}
