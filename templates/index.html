@@ -99,4 +99,18 @@
 
     </div>
 
+    <!-- Add post button -->
+    {% if user.is_authenticated %}
+    <div class="container">
+        <div class="row">
+            <span class="p-2 text-white text-center">Have something awesome to share?</span>
+            <a href="{% url 'add_post' %}" class="text-center p-2">
+                <button type="button" class="btn btn-outline-info btn-lg px-4 fw-bold">
+                    Add Post
+                </button>
+            </a>
+        </div>
+    </div>
+    {% endif %}
+
     {% endblock %}

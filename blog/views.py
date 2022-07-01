@@ -1,8 +1,10 @@
-from django.shortcuts import render, get_object_or_404, reverse
+from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic, View
 from django.http import HttpResponseRedirect
+from django.contrib import messages
+from django.db.models import Q
 from .models import Post
-from .forms import CommentForm
+from .forms import CommentForm, PostForm
 
 
 class PostList(generic.ListView):
@@ -105,3 +107,42 @@ class PostLike(View):
             post.likes.add(request.user)
 
         return HttpResponseRedirect(reverse('post_detail', args=[slug]))
+
+
+class AddPost(View):
+    """allow user to add a post"""
+
+    def get(self, request):
+        """to get add_post.html"""
+
+        context = {'form': PostForm()}
+        return render(request, 'add_post.html', context)
+
+    def post(self, request, *args, **kwargs):
+        """
+        to allow user to post info to
+        display the post for others to see
+        """
+
+        form = PostForm(request.POST)
+        title = form.instance.title
+        if Post.objects.filter(
+            Q(post_title=title)
+        ).exists():
+            messages.error(
+                request,
+                'Post Title already exists, please try another one.'
+            )
+            context = {'form': form}
+            return render(request, 'add_post.html', context)
+
+        if request.method == 'POST':
+            form = PostForm(request.POST, instance=title)
+            if form.is_valid():
+                form.save()
+                messages.success(request, 'Thank you for sharing your post.')
+                return redirect('/')
+
+        content = {'form': form}
+        return render(request, 'add_post.html', content)
+

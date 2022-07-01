@@ -1,5 +1,6 @@
+from django_summernote.widgets import SummernoteWidget
 from django import forms
-from .models import Comment
+from .models import Comment, Post
 
 
 # copied from code institutde walkthrough project
@@ -15,3 +16,23 @@ class CommentForm(forms.ModelForm):
         """
         model = Comment
         fields = ('body',)
+
+
+class PostForm(forms.ModelForm):
+    """ post form """
+    class Meta:
+        """
+        use post as the model, and specify what
+        fields to display
+        """
+        model = Post
+        fields = (
+            'title',
+            'content',
+            'excerpt',
+            'image',
+        )
+        widgets = {
+            'content': SummernoteWidget(),
+            'excerpt': SummernoteWidget(),
+        }
