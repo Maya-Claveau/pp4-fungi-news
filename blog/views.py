@@ -120,14 +120,14 @@ class AddPost(View):
 
     def post(self, request, *args, **kwargs):
         """
-        to allow user to post info to
-        display the post for others to see
+        to allow user to post new articles to
+        the blog for others to see and interact with
         """
 
         form = PostForm(request.POST)
         title = form.instance.title
         if Post.objects.filter(
-            Q(post_title=title)
+            Q(title=title)
         ).exists():
             messages.error(
                 request,
@@ -145,4 +145,3 @@ class AddPost(View):
 
         content = {'form': form}
         return render(request, 'add_post.html', content)
-
