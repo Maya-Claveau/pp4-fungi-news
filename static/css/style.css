@@ -129,7 +129,6 @@ a {
     flex-direction: column-reverse;
     align-items: center;
     font-size: 18px;
-    background-color: #393d3f;
 }
 
 .social-links {
@@ -253,16 +252,16 @@ a {
     .footer-for-lg {
         display: flex;
         justify-content: space-between;
-        color: #fdfdff;
+        /* color: #fdfdff; */
     }
 
     .footer-list {
         list-style: none;
-        color: #fdfdff !important;
+        /* color: #fdfdff !important; */
     }
 
     .footer-link>a {
-        color: #fdfdff !important;
+        /* color: #fdfdff !important; */
         font-size: medium;
     }
 }
