@@ -43,14 +43,14 @@
                                 {% else %}
 
                                 <button type="submit" name="blogpost_id" value="{{ post.slug }}" class="btn-like"><i
-                                        class="fal fa-heart-circle"></i></button>
+                                        class="fa-solid fa-heart"></i></button>
 
                                 {% endif %}
                             </form>
                             {% else %}
-                            <span class="text-secondary"><i class="fal fa-heart-circle"></i></span>
+                            <span class="text-secondary"><i class="fa-solid fa-heart"></i></span>
                             {% endif %}
-                            <span class="text-secondary">{{ post.number_of_likes }}</span>
+                            <span class="text-secondary text-red">{{ post.number_of_likes }}</span>
                         </strong>
                     </div>
                     <div class="col-1">
