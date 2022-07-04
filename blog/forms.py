@@ -1,4 +1,3 @@
-from django_summernote.widgets import SummernoteWidget
 from django import forms
 from .models import Comment, Post
 
@@ -32,7 +31,3 @@ class PostForm(forms.ModelForm):
             'excerpt',
             'image',
         )
-        widgets = {
-            'content': SummernoteWidget(),
-            'excerpt': SummernoteWidget(),
-        }

@@ -8,21 +8,14 @@
 
 {% load crispy_forms_tags %}
 
-<!-- <p class="text-white text-center mt-5">Add post below</p>
-<form action="{% url 'add_post' %}" method="post" class="text-center flex-shrink-0">
-    {% csrf_token %}
-    {{ form | crispy }}
-    <input type="submit" class="btn btn-lg btn-outline-warning btn-block" />
-</form> -->
-
 <div class="container position-relative px-4 px-lg-5">
     <div class="row text-white">
         <div class="col">
             <h1 class="h3 text-center">Add Post</h1>
-            <form method="POST" class="add-post">
+            <form method="POST" class="add-post" action="{% url 'add_post' %}">
                 {% csrf_token %}
                 {{ form | crispy }}
-                <button type="submit" class="btn btn-outline-info mb-2">Submit</button>
+                <button type="submit" class="btn btn-outline-info mt-2 mb-2">Submit</button>
             </form>
         </div>
     </div>
