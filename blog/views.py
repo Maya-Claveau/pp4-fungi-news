@@ -118,30 +118,39 @@ class AddPost(View):
         context = {'form': PostForm()}
         return render(request, 'add_post.html', context)
 
-    def post(self, request, *args, **kwargs):
+    def post(self, request):
         """
         to allow user to post new articles to
         the blog for others to see and interact with
         """
 
-        form = PostForm(request.POST)
-        title = form.instance.title
-        if Post.objects.filter(
-            Q(title=title)
-        ).exists():
-            messages.error(
-                request,
-                'Post Title already exists, please try another one.'
-            )
-            context = {'form': form}
-            return render(request, 'add_post.html', context)
-
+        # form = PostForm(request.POST)
+        # title = form.instance.title
+        # if Post.objects.filter(
+        #     Q(title=title)
+        # ).exists():
+        #     messages.error(
+        #         request,
+        #         'Post Title already exists, please try another one.'
+        #     )
+        form = PostForm()
         if request.method == 'POST':
-            form = PostForm(request.POST, instance=title)
+            form = PostForm(request.POST)
             if form.is_valid():
                 form.save()
-                messages.success(request, 'Thank you for sharing your post.')
-                return redirect('/')
+                return redirect('post_detail')
+        else:
+            form = NameForm()
 
-        content = {'form': form}
-        return render(request, 'add_post.html', content)
+        context = {'form': form}
+        return render(request, 'post_detail.html', context)
+
+
+
+
+            # form = PostForm(get)
+            # form = PostForm(request.POST, instance=title)
+            # if form.is_valid():
+            #     form.save()
+            #     messages.success(request, 'Thank you for sharing your post.')
+            #     return redirect('/')

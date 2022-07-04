@@ -11,11 +11,13 @@
 <div class="container position-relative px-4 px-lg-5">
     <div class="row text-white">
         <div class="col">
-            <h1 class="h3 text-center">Add Post</h1>
+            <h1 class="h3 text-center mt-3">Add Post</h1>
             <form method="POST" class="add-post" action="{% url 'add_post' %}">
                 {% csrf_token %}
                 {{ form | crispy }}
-                <button type="submit" class="btn btn-outline-info mt-2 mb-2">Submit</button>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-lg center btn-outline-info mt-2 mb-2">Submit</button>
+                </div>
             </form>
         </div>
     </div>
