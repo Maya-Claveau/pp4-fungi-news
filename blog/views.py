@@ -138,7 +138,7 @@ class AddPost(View):
             form = PostForm(request.POST)
             if form.is_valid():
                 form.save()
-                return redirect('post_detail')
+                return redirect('home')
         else:
             form = NameForm()
 
