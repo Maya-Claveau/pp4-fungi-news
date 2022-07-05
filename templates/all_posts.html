@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+<div class="row">
+    <div class="col-8 offset-2">
+        <h3 class="text-center">All Posts</h3>
+        <hr>
+    </div>
+</div>
+
+<!-- to display all the posts from the database, and 3 posts per row on the big screen-->
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <!-- All Posts from the database -->
+        <div class="col-12 mt-3 left">
+            <div class="row">
+                {% for post in all_posts %}
+
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <div class="image-container">
+                                {% if "placeholder" in post.image.url %}
+                                <img src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg"
+                                    class="card-img-top post-img" alt="A laptop with code on the screen">
+                                {% else %}
+                                <img src=" {{ post.image.url }} " class="card-img-top post-img"
+                                    alt="An uploaded image from the user">
+                                {% endif %}
+                            </div>
+                            <p class="author">Author: {{ post.author }}</p>
+
+                            <a href="{% url 'all_posts' post.slug %}" class="post-link">
+                                <h3 class="card-title">{{ post.title }}</h3>
+                                <p class="card-text">{{ post.excerpt }}</p>
+                            </a>
+                            <hr />
+                            <div class="card-info d-flex justify-content-between">
+                                <p class="card-text text-muted h6">{{ post.created_on }}</p>
+                                <p class="like-comment"><i class="far fa-heart"></i> {{ post.number_of_likes}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% if forloop.counter|divisibleby:3 %}
+            </div>
+            <div class="row">
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <!-- pagination code copied from I Think Therefore I Blog project walkthrough -->
+    {% if is_paginated %}
+    <nav aria-label="Page navigation">
+        <ul class="pagination justify-content-center">
+            {% if page_obj.has_previous %}
+            <li class="page-item">
+                <a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; Previous </a>
+            </li>
+            {% endif %}
+
+            {% if page_obj.has_next %}
+            <li class="page-item">
+                <a href="?page={{ page_obj.next_page_number }}" class="page-link">Next &raquo;</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+    {% endif %}
+
+</div>
+
+{% endblock content %}

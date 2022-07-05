@@ -124,15 +124,6 @@ class AddPost(View):
         the blog for others to see and interact with
         """
 
-        # form = PostForm(request.POST)
-        # title = form.instance.title
-        # if Post.objects.filter(
-        #     Q(title=title)
-        # ).exists():
-        #     messages.error(
-        #         request,
-        #         'Post Title already exists, please try another one.'
-        #     )
         form = PostForm()
         if request.method == 'POST':
             form = PostForm(request.POST)
@@ -140,17 +131,15 @@ class AddPost(View):
                 form.save()
                 return redirect('home')
         else:
-            form = NameForm()
+            form = PostForm()
 
         context = {'form': form}
-        return render(request, 'post_detail.html', context)
+        return render(request, 'add_post.html', context)
 
 
-
-
-            # form = PostForm(get)
-            # form = PostForm(request.POST, instance=title)
-            # if form.is_valid():
-            #     form.save()
-            #     messages.success(request, 'Thank you for sharing your post.')
-            #     return redirect('/')
+class AllPosts(generic.ListView):
+    """to get all the posts"""
+    model = Post
+    queryset = Post.objects.all().order_by('-created_on')
+    template_name = 'all_posts.html'
+    paginate_by = 6
