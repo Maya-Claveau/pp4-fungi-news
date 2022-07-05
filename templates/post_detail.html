@@ -14,10 +14,12 @@
                 <p class="post-subtitle"> {{ post.author }} | {{ post.created_on }} </p>
             </div>
             <div class="d-none d-md-block col-md-6 masthead-image">
-                {% if "placeholder" in post.featured_image.url %}
-                <img src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg" width="100%">
+                {% if "placeholder" in post.image.url %}
+                <img class="card-img-top post-img"
+                    src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg"
+                    alt="A laptop with code on the screen">
                 {% else %}
-                <img src="{{ post.image.url }}" width="100%">
+                <img src=" {{ post.image.url }} " class="card-img-top post-img" alt="An uploaded image from the user">
                 {% endif %}
             </div>
         </div>
