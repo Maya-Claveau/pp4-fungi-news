@@ -1,7 +1,9 @@
 from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic, View
+from django.views.generic.edit import UpdateView, DeleteView
 from django.http import HttpResponseRedirect
 from django.contrib import messages
+from django.urls import reverse_lazy
 from .models import Post
 from .forms import CommentForm, PostForm
 
@@ -132,6 +134,8 @@ class AddPost(View):
                 form.instance.name = request.user.username
                 form.instance.author = self.request.user
                 form.save()
+                n = form.cleaned_data['name']
+                request.user.posts_set.create(name=n)
                 messages.success(request, 'Your post is awaiting approval.')
                 return redirect('home')
             else:
@@ -153,3 +157,34 @@ class AllPosts(generic.ListView):
     queryset = Post.objects.all().order_by('-created_on')
     template_name = 'all_posts.html'
     paginate_by = 6
+
+
+class SharedPostsByUsers(generic.ListView):
+    """
+    display all the posts added by
+    logged in users
+    """
+    model = Post
+    template_name = 'shared_posts.html'
+    context_object_name = 'posts'
+    paginate_by = 6
+
+    def get_queryset(self):
+        return Post.objects.filter(
+            author=self.request.user, status=1
+            ).order_by('-created_on')
+
+
+class UpdatePost(UpdateView):
+    """update a post when user logged in"""
+    model = Post
+    template_name = 'update_post.html'
+    form_class = PostForm
+    success_url = reverse_lazy('shared_posts')
+
+
+class DeletePost(DeleteView):
+    """delete a shared post when user logged in"""
+    model = Post
+    template_name = 'delete_post.html'
+    success_url = reverse_lazy('shared_posts')

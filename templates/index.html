@@ -99,17 +99,31 @@
     </div>
 
     <!-- Add post button -->
-    {% if user.is_authenticated %}
-    <div class="container">
-        <div class="row">
-            <span class="p-2 text-white text-center">Have something awesome to share?</span>
-            <a href="{% url 'add_post' %}" class="text-center p-2">
-                <button type="button" class="btn btn-outline-info btn-lg px-4 fw-bold">
-                    Add Post
-                </button>
-            </a>
+    <hr />
+    <div class="container d-flex mt-4">
+        {% if user.is_authenticated %}
+        <div class="container">
+            <div class="row">
+                <span class="p-2 text-white text-center">Have something to share?</span>
+                <a href="{% url 'add_post' %}" class="text-center p-2">
+                    <button type="button" class="btn btn-outline-info px-4 fw-bold">
+                        Add Post
+                    </button>
+                </a>
+            </div>
         </div>
+        <!-- view shared post button -->
+        <div class="container">
+            <div class="row">
+                <span class="p-2 text-white text-center">What you have shared so far?</span>
+                <a href="{% url 'shared_posts' %}" class="text-center p-2">
+                    <button type="button" class="btn btn-outline-info px-4 fw-bold">
+                        My Post
+                    </button>
+                </a>
+            </div>
+        </div>
+        {% endif %}
     </div>
-    {% endif %}
 
     {% endblock %}
