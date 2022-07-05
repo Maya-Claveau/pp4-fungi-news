@@ -11,7 +11,7 @@ class PostAdmin(SummernoteModelAdmin):
     tile, status and created_on. Plus a search field
     on the title and content.
     """
-    list_display = ('title', 'status', 'created_on')
+    list_display = ('title', 'author', 'status', 'created_on')
     list_filter = ('status', 'created_on')
     summernote_fields = ('content', )
     search_fields = ['title', 'content']

@@ -2,7 +2,6 @@ from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic, View
 from django.http import HttpResponseRedirect
 from django.contrib import messages
-from django.db.models import Q
 from .models import Post
 from .forms import CommentForm, PostForm
 
@@ -124,10 +123,13 @@ class AddPost(View):
         the blog for others to see and interact with
         """
 
-        # form = PostForm()
         if request.method == 'POST':
-            form = PostForm(request.POST)
+            form = PostForm(request.POST, initial={
+                'author': request.user.email
+                })
             if form.is_valid():
+                form.instance.email = request.user.email
+                form.instance.name = request.user.username
                 form.instance.author = self.request.user
                 form.save()
                 messages.success(request, 'Your post is awaiting approval.')
