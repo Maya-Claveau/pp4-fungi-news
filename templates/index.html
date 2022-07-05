@@ -57,6 +57,21 @@
                                     {% endif %}
                                 </div>
                                 <p class="author">Author: {{ post.author }}</p>
+                                {% if user.is_authenticated %}
+                                {% if user.id == post.author.id %}
+                                <div class="container d-flex flex-row-reverse">
+                                    <!-- edit post button -->
+                                    <a href="{% url 'update_post' post.slug %}" class="p-2">
+                                        <button type="button" class="btn btn-outline-success edit-btn">Edit</button>
+                                    </a>
+
+                                    <!-- delete post button -->
+                                    <a href="{% url 'delete_post' post.slug %}" class="p-2">
+                                        <button type="button" class="btn btn-outline-danger delete-btn">Delete</button>
+                                    </a>
+                                </div>
+                                {% endif %}
+                                {% endif %}
                                 <a href="{% url 'post_detail' post.slug %}" class="post-link">
                                     <h3 class="card-title">{{ post.title }}</h3>
                                     <p class="card-text">{{ post.excerpt }}</p>

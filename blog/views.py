@@ -180,11 +180,11 @@ class UpdatePost(UpdateView):
     model = Post
     template_name = 'update_post.html'
     form_class = PostForm
-    success_url = reverse_lazy('shared_posts')
+    success_url = reverse_lazy('post_detail')
 
 
 class DeletePost(DeleteView):
     """delete a shared post when user logged in"""
     model = Post
     template_name = 'delete_post.html'
-    success_url = reverse_lazy('shared_posts')
+    success_url = reverse_lazy('post_detail')

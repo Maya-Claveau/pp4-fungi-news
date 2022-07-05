@@ -2,55 +2,10 @@
 
 {% block content %}
 {% load static %}
+
 <div class="container">
     <h3 class="text-center text-white mt-3">My Posts</h3>
 </div>
 
-<div class="container">
-    <div class="row">
-        <div class="col-12">
-            {% if user.is_authenticated %}
-
-            {% if shared_posts %}
-            <p>Number of posts shared: {{ shared_posts|length }}</p>
-            {% for post in user.posts_set %}
-            <p>
-                <a href="/{{ post.id }}">{{ post.title }}</a>
-            </p>
-            {% endfor %}
-            <!-- edit post button -->
-            <div>
-                <a href="{% url 'update_post' post.slug %}" class="btn btn-lg btn-info edit-btn">
-                    <button>Edit</button>
-                </a>
-            </div>
-            <!-- delete post button -->
-            <div>
-                <a href="{% url 'delete_post' post.slug %}" class="btn btn-lg btn-danger delete-btn">
-                    <button>Delete</button>
-                </a>
-            </div>
-        </div>
-    </div>
-</div>
-{% if forloop.counter|divisibleby:3 %}
-</div>
-<div class="row">
-    {% endif %}
-    {% endif %}
-</div>
-
-<!-- if logged in user didn't post anything yet, this share post button will show instead -->
-{% else %}
-<p class="text-center text-white">Looks like you haven't share anything yet. Start sharing and get
-    engaged
-    with our community</p>
-<div class="text-center">
-    <a href="{% url 'add_post' %}" class="text-center p-2">
-        <button type="button" class="btn btn-outline-info px-4 fw-bold">
-            Share Post
-        </button>
-    </a>
-</div>
 
 {% endblock %}

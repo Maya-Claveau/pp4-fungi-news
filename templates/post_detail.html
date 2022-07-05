@@ -11,7 +11,24 @@
                 <h1 class="post-title">
                     {{ post.title }}
                 </h1>
-                <p class="post-subtitle"> {{ post.author }} | {{ post.created_on }} </p>
+                <small class="post-subtitle">By: {{ post.author }} | {{ post.created_on }} </small>
+                {% if user.is_authenticated %}
+                {% if user.id == post.author.id %}
+
+                <div class="container d-flex flex-row-reverse">
+                    <!-- edit post button -->
+                    <a href="{% url 'update_post' post.slug %}" class="p-2">
+                        <button type="button" class="btn btn-outline-success edit-btn">Edit</button>
+                    </a>
+
+                    <!-- delete post button -->
+                    <a href="{% url 'delete_post' post.slug %}" class="p-2">
+                        <button type="button" class="btn btn-outline-danger delete-btn">Delete</button>
+                    </a>
+                </div>
+
+                {% endif %}
+                {% endif %}
             </div>
             <div class="d-none d-md-block col-md-6 masthead-image">
                 {% if "placeholder" in post.image.url %}
@@ -35,6 +52,7 @@
                     <div class="col-1">
                         <strong>
                             {% if user.is_authenticated %}
+
                             <form class="d-inline" action="{% url 'blogpost_like' post.slug %}" method="POST">
                                 {% csrf_token %}
                                 {% if liked %}
@@ -97,7 +115,7 @@
                 <form method="POST">
                     {{ comment_form | crispy }}
                     {% csrf_token %}
-                    <button type="submit" class="btn btn-secondary btn-lg mt-2">Submit</button>
+                    <button type="submit" class="btn btn-outline-dark btn-lg mt-2">Submit</button>
                 </form>
                 {% endif %}
             </div>
