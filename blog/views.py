@@ -127,16 +127,15 @@ class AddPost(View):
         # form = PostForm()
         if request.method == 'POST':
             form = PostForm(request.POST)
-        if form.is_valid():
-            form.instance.author = self.request.user
-            try:
+            if form.is_valid():
+                form.instance.author = self.request.user
                 form.save()
                 messages.success(request, 'Your post is awaiting approval.')
                 return redirect('home')
-            except:
+            else:
                 messages.error(request,
-                'Error: Something went wrong,'
-                'Please try again.')
+                    'Error: Something went wrong,'
+                    ' please try again.')
                 context = {'form': form}
                 return render(request, 'add_post.html', context)
         else:
