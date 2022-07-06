@@ -1,10 +1,10 @@
 from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic, View
-from django.views.generic.edit import UpdateView, DeleteView
+from django.views.generic.edit import UpdateView, DeleteView, FormView
 from django.http import HttpResponseRedirect
 from django.contrib import messages
 from .models import Post
-from .forms import CommentForm, PostForm
+from .forms import CommentForm, PostForm, ContactForm
 
 
 class PostList(generic.ListView):
@@ -188,3 +188,15 @@ class DeletePost(DeleteView):
     model = Post
     template_name = 'delete_post.html'
     success_url = '/'
+
+
+class Contact(FormView):
+    """contact us page"""
+    template_name = 'contact.html'
+    form_class = ContactForm
+    success_url = '/'
+
+    def form_invalid(self, form):
+        form.save()
+        messages.success(self, 'Your message is sent successfully. We will get back to you as soon as we can.')  # noqa: E501
+        return super().form_invalid(form)
