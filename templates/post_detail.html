@@ -89,6 +89,7 @@
             <hr>
         </div>
     </div>
+    {% if user.is_authenticated %}
     <div class="row d-flex card-bg">
         <div class="card p-2 card-bg">
             <h3>Comments:</h3>
@@ -109,7 +110,7 @@
         </div>
         <div class="card mb-4 mt-1 card-bg">
             <div class="card-body mt-3 pt-0 pb-4">
-                {% if user.is_authenticated %}
+
                 <h3>Tell us what you think:</h3>
                 <p class="text-justify">Posted by {{ user.username }}</p>
                 <form method="POST">
