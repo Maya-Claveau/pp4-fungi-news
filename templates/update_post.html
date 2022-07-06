@@ -12,13 +12,13 @@
 <div class="container position-relative px-4 px-lg-5">
     <div class="row">
         <div class="col">
-            <h1 class="text-center text-white">Edit Post</h1>
-            <form method="POST" class="text-white edit-post mt-2" action="{% url 'update_post' post.pk %}">
+            <h1 class="text-center text-white">Update Post</h1>
+            <form method="POST" class="text-white edit-post mt-2" action="{% url 'update_post' post.slug %}">
                 {% csrf_token %}
                 {{ form | crispy }}
 
                 <div class="text-center">
-                    <a href="{% url 'update_post' post.pk %}">
+                    <a href="{% url 'update_post' post.slug %}">
                         <button type="submit"
                             class="btn btn-lg center btn-outline-info mt-2 mb-2 edit-btn">Submit</button>
                     </a>

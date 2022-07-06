@@ -60,9 +60,9 @@
                                 {% if user.is_authenticated %}
                                 {% if user.id == post.author.id %}
                                 <div class="container d-flex flex-row-reverse">
-                                    <!-- edit post button -->
+                                    <!-- update post button -->
                                     <a href="{% url 'update_post' post.slug %}" class="p-2">
-                                        <button type="button" class="btn btn-outline-success edit-btn">Edit</button>
+                                        <button type="button" class="btn btn-outline-success edit-btn">Update</button>
                                     </a>
 
                                     <!-- delete post button -->

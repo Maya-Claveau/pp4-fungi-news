@@ -9,10 +9,10 @@
     <div class="row">
         <div class="col-md-8 mt-3 offset-md-2 center">
             <h3>Delete {{ post.title }}</h3>
-            <form method="post" action="{% url 'delete_post' %}">
+            <form method="post" action="{% url 'delete_post' post.slug %}">
                 {% csrf_token %}
                 <p>Are you sure you want to delete "{{ post.title }}"?</p>
-                <a href="{% url 'delete_post' post.pk %}">
+                <a href="{% url 'delete_post' post.slug %}">
                     <button class="btn btn-lg btn-warning delete-btn">Delete</button>
                 </a>
             </form>

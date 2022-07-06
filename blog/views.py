@@ -134,8 +134,6 @@ class AddPost(View):
                 form.instance.name = request.user.username
                 form.instance.author = self.request.user
                 form.save()
-                n = form.cleaned_data['name']
-                request.user.posts_set.create(name=n)
                 messages.success(request, 'Your post is awaiting approval.')
                 return redirect('home')
             else:
@@ -187,4 +185,4 @@ class DeletePost(DeleteView):
     """delete a shared post when user logged in"""
     model = Post
     template_name = 'delete_post.html'
-    success_url = reverse_lazy('/')
+    success_url = '/'
