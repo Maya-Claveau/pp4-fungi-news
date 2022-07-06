@@ -151,7 +151,7 @@ class AddPost(View):
 class AllPosts(generic.ListView):
     """to get all the posts"""
     model = Post
-    queryset = Post.objects.all().order_by('-created_on')
+    queryset = Post.objects.filter(status=1).order_by('-created_on')
     template_name = 'all_posts.html'
     paginate_by = 6
 
