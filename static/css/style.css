@@ -54,8 +54,8 @@ a {
     border-bottom: 2px solid #62929e;
 }
 
-.active a {
-    border-bottom: 2px solid #62929e;
+.current {
+    border-bottom: 2px solid #62929e !important;
 }
 
 .bg-img {
@@ -141,6 +141,11 @@ a {
 @media only screen and (max-width: 1199px) and (min-width: 768px) {
     body {
         font-size: larger;
+    }
+
+    .mynavbar a::after {
+        background-color: yellow;
+        border-bottom: 2px solid #62929e;
     }
 
     .bg-img {
