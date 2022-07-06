@@ -148,7 +148,7 @@ class AddPost(View):
             form = PostForm()
 
         context = {'form': form}
-        return render(request, 'add_post.html', context)
+        return render(request, 'index.html', context)
 
 
 class AllPosts(generic.ListView):
@@ -180,11 +180,11 @@ class UpdatePost(UpdateView):
     model = Post
     template_name = 'update_post.html'
     form_class = PostForm
-    success_url = reverse_lazy('post_detail')
+    success_url = '/'
 
 
 class DeletePost(DeleteView):
     """delete a shared post when user logged in"""
     model = Post
     template_name = 'delete_post.html'
-    success_url = reverse_lazy('post_detail')
+    success_url = reverse_lazy('/')

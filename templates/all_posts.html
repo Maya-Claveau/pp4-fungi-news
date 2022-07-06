@@ -2,22 +2,24 @@
 
 {% load static %}
 
+{% block header %}
 <div class="row">
     <div class="col-8 offset-2">
-        <h3 class="text-center">All Posts</h3>
+        <h3 class="text-center text-white">All Posts</h3>
         <hr>
     </div>
 </div>
+{% endblock %}
 
 <!-- to display all the posts from the database, and 3 posts per row on the big screen-->
 
 {% block content %}
 <div class="container">
     <div class="row">
-        <!-- All Posts from the database -->
+        <!-- Blog Entries Column -->
         <div class="col-12 mt-3 left">
             <div class="row">
-                {% for post in all_posts %}
+                {% for post in post_list %}
                 <div class="col-md-4">
                     <div class="card mb-4">
                         <div class="card-body">
@@ -31,8 +33,22 @@
                                 {% endif %}
                             </div>
                             <p class="author">Author: {{ post.author }}</p>
+                            {% if user.is_authenticated %}
+                            {% if user.id == post.author.id %}
+                            <div class="container d-flex flex-row-reverse">
+                                <!-- edit post button -->
+                                <a href="{% url 'update_post' post.slug %}" class="p-2">
+                                    <button type="button" class="btn btn-outline-success edit-btn">Edit</button>
+                                </a>
 
-                            <a href="{% url 'all_posts' post.slug %}" class="post-link">
+                                <!-- delete post button -->
+                                <a href="{% url 'delete_post' post.slug %}" class="p-2">
+                                    <button type="button" class="btn btn-outline-danger delete-btn">Delete</button>
+                                </a>
+                            </div>
+                            {% endif %}
+                            {% endif %}
+                            <a href="{% url 'post_detail' post.slug %}" class="post-link">
                                 <h3 class="card-title">{{ post.title }}</h3>
                                 <p class="card-text">{{ post.excerpt }}</p>
                             </a>
