@@ -3,7 +3,6 @@ from django.views import generic, View
 from django.views.generic.edit import UpdateView, DeleteView
 from django.http import HttpResponseRedirect
 from django.contrib import messages
-from django.urls import reverse_lazy
 from .models import Post
 from .forms import CommentForm, PostForm
 
@@ -159,22 +158,23 @@ class AllPosts(generic.ListView):
 
 class SharedPostsByUsers(generic.ListView):
     """
-    display all the posts added by
-    logged in users
+    display all the posts added by currently
+    logged in user
     """
     model = Post
+    author = Post.author
     template_name = 'shared_posts.html'
-    context_object_name = 'posts'
     paginate_by = 6
 
-    def get_queryset(self):
-        return Post.objects.filter(
-            author=self.request.user, status=1
-            ).order_by('-created_on')
+    def get_queryset(self, *args, **kwargs):
+        return Post.objects.filter(author=self.request.user, status=1).order_by('-created_on')  # noqa: E501
 
 
 class UpdatePost(UpdateView):
-    """update a post when user logged in"""
+    """
+    update a post when user logged in
+    and shared a post
+    """
     model = Post
     template_name = 'update_post.html'
     form_class = PostForm
@@ -182,7 +182,9 @@ class UpdatePost(UpdateView):
 
 
 class DeletePost(DeleteView):
-    """delete a shared post when user logged in"""
+    """
+    delete a shared post when user logged in
+    """
     model = Post
     template_name = 'delete_post.html'
     success_url = '/'
