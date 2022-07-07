@@ -8,9 +8,9 @@
 
 {% load crispy_forms_tags %}
 
-<div class="container position-relative px-4 px-lg-5">
+<div class="container px-4 px-lg-5">
     <div class="row text-white">
-        <div class="col col-md-8 offset-md-2">
+        <div class="container-fluid col-12 col-md-8 offset-md-2">
             <h1 class="h3 text-center mt-3">Add Post</h1>
             <form method="POST" class="add-post" action="{% url 'add_post' %}">
                 {% csrf_token %}

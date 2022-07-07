@@ -197,6 +197,9 @@ class Contact(FormView):
     success_url = '/'
 
     def form_valid(self, form):
-        form.save()
-        messages.success(self, 'Your message is sent successfully.')  # noqa: E501
+        """
+        if form is valid below message will display
+        while return to the home page
+        """
+        messages.success(self.request, 'Thank you! Your message has been sent successfully.')  # noqa: E501
         return super().form_valid(form)
