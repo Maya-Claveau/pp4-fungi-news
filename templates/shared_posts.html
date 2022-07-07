@@ -15,6 +15,9 @@
         <!-- Blog Entries Column -->
         <div class="col-12 mt-3 left">
             <div class="row">
+                <!-- if the user have added post, they will show here -->
+                {% if post_list|length > 0 %}
+                <!-- loopping through the posts have been shared by the logged in user -->
                 {% for post in post_list %}
                 <div class="col-md-4">
                     <div class="card mb-4">
@@ -62,6 +65,21 @@
                 {% endif %}
                 {% endfor %}
             </div>
+            <!-- if the user have NOT shared any post, the share button below will display -->
+            {% else %}
+            <div class="container text-center mt-4">
+                <div class="text-white">
+                    <p>It looks like that you haven't share any post yet. Click on the button below
+                        <i class="fa-solid fa-hand-point-down"></i>
+                    </p>
+                    <span>Start sharing.</span>
+                </div>
+                <div class="mt-4">
+                    <button type="submit" class="btn btn-lg btn-outline-info">Share Post</button>
+                </div>
+            </div>
+
+            {% endif %}
         </div>
     </div>
 
