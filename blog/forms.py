@@ -35,7 +35,6 @@ class PostForm(forms.ModelForm):
 
         widgets = {
             'content': SummernoteWidget(),
-            'excerpt': SummernoteWidget(),
         }
 
 

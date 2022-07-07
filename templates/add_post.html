@@ -14,7 +14,6 @@
             <h1 class="h3 text-center mt-3">Add Post</h1>
             <form method="POST" class="add-post" action="{% url 'add_post' %}">
                 {% csrf_token %}
-                {{ content|safe }}
                 {{ form | crispy }}
                 <div class="text-center mt-3 mb-3">
                     <button type="submit" class="btn btn-lg center btn-outline-info">Submit</button>
