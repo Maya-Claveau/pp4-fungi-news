@@ -13,8 +13,8 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-12">
-            <form action="" method="POST">
+        <div class="col-md-8 offset-md-2">
+            <form action="" method="POST" class="text-white">
                 {% csrf_token %}
                 {{ form | crispy }}
                 <div class="text-center">

@@ -205,3 +205,15 @@ SOCIALACCOUNT_PROVIDERS = {
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# set summernote width
+SUMMERNOTE_CONFIG = {
+
+    'summernote': {
+
+        # Change editor size
+        'width': '100%',
+        'height': '400',
+    }
+}

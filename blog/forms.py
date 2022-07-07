@@ -1,4 +1,5 @@
 from django import forms
+from django_summernote.widgets import SummernoteWidget, SummernoteInplaceWidget
 from .models import Comment, Post
 
 
@@ -32,17 +33,25 @@ class PostForm(forms.ModelForm):
             'image',
         )
 
+        widgets = {
+            'content': SummernoteWidget(),
+            'excerpt': SummernoteWidget(),
+        }
 
-class ContactForm(forms.Form):
+
+class ContactForm(forms.ModelForm):
     """
     contact form for user to
     send messages
     """
-    first_name = forms.CharField(max_length=50)
-    last_name = forms.CharField(max_length=50)
-    email_address = forms.EmailField(max_length=150)
-    message = forms.CharField(widget=forms.Textarea, max_length=2000)
-
-    def send_email(self):
-        """ send email """
-        pass
+    class Meta:
+        """
+        use Comment as the model, and specify what
+        fields to display
+        """
+        model = Comment
+        fields = (
+            'name',
+            'email',
+            'body',
+        )

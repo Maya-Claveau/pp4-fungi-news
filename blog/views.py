@@ -196,7 +196,7 @@ class Contact(FormView):
     form_class = ContactForm
     success_url = '/'
 
-    def form_invalid(self, form):
+    def form_valid(self, form):
         form.save()
-        messages.success(self, 'Your message is sent successfully. We will get back to you as soon as we can.')  # noqa: E501
-        return super().form_invalid(form)
+        messages.success(self, 'Your message is sent successfully.')  # noqa: E501
+        return super().form_valid(form)
