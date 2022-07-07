@@ -5,15 +5,15 @@
 {% if user.is_authenticated %}
 {% if user.id == post.author.id or user.is_superuser %}
 
-<div class="container">
+<div class="container mt-5">
     <div class="row">
-        <div class="col-md-8 mt-3 offset-md-2 center">
-            <h3>Delete {{ post.title }}</h3>
+        <div class="col-md-8 offset-md-2 text-center text-white">
+            <h3 class="mb-5">Delete "{{ post.title }}" </h3>
             <form method="post" action="{% url 'delete_post' post.slug %}">
                 {% csrf_token %}
                 <p>Are you sure you want to delete "{{ post.title }}"?</p>
                 <a href="{% url 'delete_post' post.slug %}">
-                    <button class="btn btn-lg btn-warning delete-btn">Delete</button>
+                    <button class="btn btn-lg btn-warning delete-btn mt-5">Delete</button>
                 </a>
             </form>
         </div>

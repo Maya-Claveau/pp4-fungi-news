@@ -180,6 +180,14 @@ class UpdatePost(UpdateView):
     form_class = PostForm
     success_url = '/'
 
+    def form_valid(self, form):
+        """
+        if form is valid below message will display
+        while return to the home page
+        """
+        messages.success(self.request, "You have updated your post successfully.")  # noqa: E501
+        return super().form_valid(form)
+
 
 class DeletePost(DeleteView):
     """
