@@ -5,7 +5,7 @@
 {% block title %} Logout of your Account {% endblock %}
 
 {% block content %}
-<p class="text-white text-center mt-5">Are you sure you want to sign out?</p>
+<p class="text-white text-center mt-5">Are you sure you want to log out?</p>
 <form action="{% url 'account_logout' %}" method="post" class="text-center">
     {% csrf_token %}
     {% if redirect_field_value %}

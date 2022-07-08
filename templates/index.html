@@ -6,139 +6,154 @@
 
 {% block header %}
 
-<div class="bg-img" title="Man wearing VR glasses with tech board">
-    <div class="container-fluid">
-        <div class="row p-4">
-            <div class="col-12 col-md-6 col-lg-4 pt-2">
-                <h1 class="fw-bold text-white text-center text-md-start mb-1">NFT News Blog</h1>
-                <p class="fs-5 mb-4 text-white text-center text-md-start">Welcome to Fungi News. A place to get the
-                    latest
-                    update and trendy news about NFT, where you also have the opportunity to share your NFT
-                    enthusiastic with
-                    others like you.
-                </p>
-                <div class="gap-2 d-flex justify-content-center justify-content-md-start">
-                    <a href="{% url 'account_signup' %}">
-                        <button type="button" class="btn btn-info btn-lg px-4 me-sm-3 fw-bold">
-                            Sign Up
-                        </button>
-                    </a>
-                    <a href="{% url 'account_login' %}">
-                        <button type="button" class="btn btn-outline-light btn-lg px-4 fw-bold">
-                            Login
-                        </button>
-                    </a>
-                </div>
+
+<div class="container-fluid bg-img" title="Man wearing VR glasses with Tech board">
+    <div class="row p-4">
+        <div class="col-12 col-md-6 col-lg-4 d-flex flex-column align-self-center mt-4">
+            <h1 class="fw-bold text-white text-center text-md-start mb-1">NFT News Blog</h1>
+            {% if user.is_authenticated %}
+            <p class="fs-5 mt-2 text-white text-center text-md-start">Welcome back to Fungi News! Check out our
+                Blog for the latest news.
+            </p>
+            <p class="fs-5 mb-4 text-white text-center text-md-start">Seen an interesting post the other day? Why
+                not share it with our comminity.
+            </p>
+
+            <div class="gap-4 d-flex justify-content-center justify-content-md-start text-white">
+                <a href="{% url 'all_posts' %}">
+                    <button class="btn btn-outline-info btn-lg px-4 me-sm-3 fw-bold">Blog</button>
+                </a>
+                <a href="{% url 'add_post' %}">
+                    <button class="btn btn-outline-info btn-lg px-4 me-sm-3 fw-bold">Add</button>
+                </a>
             </div>
+            {% else %}
+
+            <p class="fs-5 mb-4 text-white text-center text-md-start">Welcome to Fungi News. A place to get the
+                latest update and trendy news about NFT, where you also have the opportunity to share your NFT
+                enthusiastic with others like you.
+            </p>
+            <div class="gap-3 d-flex justify-content-center justify-content-md-start">
+                <a href="{% url 'account_signup' %}">
+                    <button type="button" class="btn btn-info btn-lg px-4 me-sm-3 fw-bold">
+                        Sign Up
+                    </button>
+                </a>
+                <a href="{% url 'account_login' %}">
+                    <button type="button" class="btn btn-outline-light btn-lg px-4 fw-bold">
+                        Login
+                    </button>
+                </a>
+            </div>
+            {% endif %}
         </div>
     </div>
+</div>
+{% endblock %}
 
-    {% endblock %}
-
-    <!-- page posts section -->
-    {% block content %}
-    <h2 class="articles-title">Articles</h2>
-    <div class="container">
-        <div class="row">
-            <!-- Blog Entries Column -->
-            <div class="col-12 mt-3 left">
-                <div class="row">
-                    {% for post in post_list %}
-                    <div class="col-md-4">
-                        <div class="card mb-4">
-                            <div class="card-body">
-                                <div class="image-container">
-                                    {% if "placeholder" in post.image.url %}
-                                    <img src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg"
-                                        class="card-img-top post-img" alt="A laptop with code on the screen">
-                                    {% else %}
-                                    <img src=" {{ post.image.url }} " class="card-img-top post-img"
-                                        alt="An uploaded image from the user">
-                                    {% endif %}
-                                </div>
-                                <p class="author">Author: {{ post.author }}</p>
-                                {% if user.is_authenticated %}
-                                {% if user.id == post.author.id %}
-                                <div class="container d-flex flex-row-reverse">
-                                    <!-- update post button -->
-                                    <a href="{% url 'update_post' post.slug %}" class="p-2">
-                                        <button type="button" class="btn btn-outline-success edit-btn">Update</button>
-                                    </a>
-
-                                    <!-- delete post button -->
-                                    <a href="{% url 'delete_post' post.slug %}" class="p-2">
-                                        <button type="button" class="btn btn-outline-danger delete-btn">Delete</button>
-                                    </a>
-                                </div>
+<!-- page posts section -->
+{% block content %}
+<h2 class="articles-title">Articles</h2>
+<div class="container">
+    <div class="row">
+        <!-- Blog Entries Column -->
+        <div class="col-12 mt-3 left">
+            <div class="row">
+                {% for post in post_list %}
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <div class="image-container">
+                                {% if "placeholder" in post.image.url %}
+                                <img src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg"
+                                    class="card-img-top post-img" alt="A laptop with code on the screen">
+                                {% else %}
+                                <img src=" {{ post.image.url }} " class="card-img-top post-img"
+                                    alt="An uploaded image from the user">
                                 {% endif %}
-                                {% endif %}
-                                <a href="{% url 'post_detail' post.slug %}" class="post-link">
-                                    <h3 class="card-title">{{ post.title }}</h3>
-                                    <p class="card-text">{{ post.excerpt }}</p>
+                            </div>
+                            <p class="author">Author: {{ post.author }}</p>
+                            {% if user.is_authenticated %}
+                            {% if user.id == post.author.id %}
+                            <div class="container d-flex flex-row-reverse">
+                                <!-- update post button -->
+                                <a href="{% url 'update_post' post.slug %}" class="p-2">
+                                    <button type="button" class="btn btn-outline-success edit-btn">Update</button>
                                 </a>
-                                <hr />
-                                <div class="card-info d-flex justify-content-between">
-                                    <p class="card-text text-muted h6">{{ post.created_on }}</p>
-                                    <p class="like-comment"><i class="far fa-heart"></i> {{ post.number_of_likes}}</p>
-                                </div>
+
+                                <!-- delete post button -->
+                                <a href="{% url 'delete_post' post.slug %}" class="p-2">
+                                    <button type="button" class="btn btn-outline-danger delete-btn">Delete</button>
+                                </a>
+                            </div>
+                            {% endif %}
+                            {% endif %}
+                            <a href="{% url 'post_detail' post.slug %}" class="post-link">
+                                <h3 class="card-title">{{ post.title }}</h3>
+                                <p class="card-text">{{ post.excerpt }}</p>
+                            </a>
+                            <hr />
+                            <div class="card-info d-flex justify-content-between">
+                                <p class="card-text text-muted h6">{{ post.created_on }}</p>
+                                <p class="like-comment"><i class="far fa-heart"></i> {{ post.number_of_likes}}</p>
                             </div>
                         </div>
                     </div>
-                    {% if forloop.counter|divisibleby:3 %}
                 </div>
-                <div class="row">
-                    {% endif %}
-                    {% endfor %}
-                </div>
+                {% if forloop.counter|divisibleby:3 %}
+            </div>
+            <div class="row">
+                {% endif %}
+                {% endfor %}
             </div>
         </div>
-
-        <!-- pagination code copied from I Think Therefore I Blog project walkthrough -->
-        {% if is_paginated %}
-        <nav aria-label="Page navigation">
-            <ul class="pagination justify-content-center">
-                {% if page_obj.has_previous %}
-                <li class="page-item">
-                    <a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; Previous </a>
-                </li>
-                {% endif %}
-
-                {% if page_obj.has_next %}
-                <li class="page-item">
-                    <a href="?page={{ page_obj.next_page_number }}" class="page-link">Next &raquo;</a></li>
-                {% endif %}
-            </ul>
-        </nav>
-        {% endif %}
-
     </div>
 
-    <!-- Add post button -->
-    <hr />
-    <div class="container d-flex mt-4">
-        {% if user.is_authenticated %}
-        <div class="container">
-            <div class="row">
-                <span class="p-2 text-white text-center">Have something to share?</span>
-                <a href="{% url 'add_post' %}" class="text-center p-2 mt-2 mb-3">
-                    <button type="button" class="btn btn-outline-info px-4 fw-bold">
-                        Add Post
-                    </button>
-                </a>
-            </div>
+    <!-- pagination code copied from I Think Therefore I Blog project walkthrough -->
+    {% if is_paginated %}
+    <nav aria-label="Page navigation">
+        <ul class="pagination justify-content-center">
+            {% if page_obj.has_previous %}
+            <li class="page-item">
+                <a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; Previous </a>
+            </li>
+            {% endif %}
+
+            {% if page_obj.has_next %}
+            <li class="page-item">
+                <a href="?page={{ page_obj.next_page_number }}" class="page-link">Next &raquo;</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+    {% endif %}
+
+</div>
+
+<!-- Add post button -->
+<hr />
+<div class="container d-flex mt-4">
+    {% if user.is_authenticated %}
+    <div class="container">
+        <div class="row">
+            <span class="p-2 text-white text-center">Have something to share?</span>
+            <a href="{% url 'add_post' %}" class="text-center p-2 mt-2 mb-3">
+                <button type="button" class="btn btn-outline-info px-4 fw-bold">
+                    Add Post
+                </button>
+            </a>
         </div>
-        <!-- view shared post button -->
-        <div class="container">
-            <div class="row">
-                <span class="p-2 text-white text-center">What you have shared so far?</span>
-                <a href="{% url 'shared_posts' %}" class="text-center p-2 mt-2 mb-3">
-                    <button type="button" class="btn btn-outline-info px-4 fw-bold">
-                        My Post
-                    </button>
-                </a>
-            </div>
-        </div>
-        {% endif %}
     </div>
+    <!-- view shared post button -->
+    <div class="container">
+        <div class="row">
+            <span class="p-2 text-white text-center">What you have shared so far?</span>
+            <a href="{% url 'shared_posts' %}" class="text-center p-2 mt-2 mb-3">
+                <button type="button" class="btn btn-outline-info px-4 fw-bold">
+                    MyPost
+                </button>
+            </a>
+        </div>
+    </div>
+    {% endif %}
 
     {% endblock %}
