@@ -6,15 +6,24 @@
 
 {% block content %}
 <!-- sign up form -->
-<div class="container">
-    <div class="col-12 col-md-8 offset-2">
-        <form action="" method="POST" class="form-group mb-1 text-white">
+<div class="container text-white mt-3">
+    <div class="row">
+        <div class="col-12 col-md-6 offset-md-3 text-center">
+            <h3>Sign Up</h3>
             <p>Already have an account? Or prefer to use your Google Account instead? Please click <a
                     href=" {% url 'account_login' %}">here</a> to login.</p>
-            {% csrf_token %}
-            {{ form|crispy }}
-            <button type="submit" class="btn btn-lg btn-success btn-block mt-2 mb-3">Sign Up</button>
-        </form>
+            <hr>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12 col-md-4 offset-md-4">
+            <form action="" method="POST" class="form-group mb-1 text-white">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <button type="submit" class="btn btn-lg btn-success btn-block mt-2 mb-3">Sign Up</button>
+            </form>
+        </div>
     </div>
 </div>
 
