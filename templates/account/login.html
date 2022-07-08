@@ -25,8 +25,8 @@
                 <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
                 {% endif %}
                 <button class="btn btn-lg btn-primary btn-block me-1" type="submit">{% trans "Sign In" %}</button>
-                <a href="{% provider_login_url 'google' %}" class="btn btn-danger btn-lg btn-block" role="button"
-                    aria-pressed="true">Login with <i class="fab fa-google"></i></a>
+                <a href="{% provider_login_url 'google' %}" class="btn btn-danger btn-lg btn-block mt-2 mb-3"
+                    role="button" aria-pressed="true">Login with <i class="fab fa-google"></i></a>
             </form>
         </div>
     </div>
