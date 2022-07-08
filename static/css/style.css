@@ -120,6 +120,11 @@ a {
     background-color: transparent;
 }
 
+/* update post page */
+input#id_image {
+    width: 80%;
+}
+
 /* footer section with social links */
 .footer-for-lg {
     display: none;
