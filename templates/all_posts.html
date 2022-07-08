@@ -35,16 +35,22 @@
                             <p class="author">Author: {{ post.author }}</p>
                             {% if user.is_authenticated %}
                             {% if user.id == post.author.id %}
-                            <div class="container d-flex flex-row-reverse">
-                                <!-- update post button -->
-                                <a href="{% url 'update_post' post.slug %}" class="p-2">
-                                    <button type="button" class="btn btn-outline-success edit-btn">Update</button>
-                                </a>
+                            <div class="container d-flex flex-row-reverse p-0">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <!-- update post button -->
+                                        <a href="{% url 'update_post' post.slug %}">
+                                            <button type="button"
+                                                class="btn btn-outline-success edit-btn">Update</button>
+                                        </a>
 
-                                <!-- delete post button -->
-                                <a href="{% url 'delete_post' post.slug %}" class="p-2">
-                                    <button type="button" class="btn btn-outline-danger delete-btn">Delete</button>
-                                </a>
+                                        <!-- delete post button -->
+                                        <a href="{% url 'delete_post' post.slug %}">
+                                            <button type="button"
+                                                class="btn btn-outline-danger delete-btn">Delete</button>
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
                             {% endif %}
                             {% endif %}
