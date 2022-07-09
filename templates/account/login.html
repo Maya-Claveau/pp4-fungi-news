@@ -9,6 +9,7 @@
 {% block head_title %}{% trans "Sign In" %}{% endblock %}
 
 {% block content %}
+<!-- login page -->
 <div class="container text-white mt-3">
     <div class="row">
         <div class="col-12 col-md-6 offset-md-3 text-center">
@@ -30,6 +31,7 @@
                 {% endif %}
                 <div class="mt-4 mb-3 text-center">
                     <button class="btn btn-lg btn-success btn-block me-1" type="submit">{% trans "Log In" %}</button>
+                    <!-- allow user to use google account to login as an option -->
                     <button class="btn btn-primary btn-lg btn-block"><a href="{% provider_login_url 'google' %}"
                             role="button" aria-pressed="true">Login
                             with <i class="fab fa-google"></i></a>

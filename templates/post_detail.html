@@ -4,6 +4,7 @@
 
 {% load crispy_forms_tags %}
 
+<!-- post details page with comment section below -->
 <div class="masthead">
     <div class="container">
         <div class="row g-0">
@@ -14,6 +15,7 @@
                 <small class="post-subtitle">By: {{ post.author }} | {{ post.created_on }} </small>
                 {% if user.is_authenticated %}
                 {% if user.id == post.author.id %}
+                <!-- only logged in user and the post author can update or delete their own post -->
 
                 <div class="container d-flex flex-row-reverse">
                     <!-- update post button -->
@@ -30,6 +32,7 @@
                 {% endif %}
                 {% endif %}
             </div>
+            <!-- placeholder img taken from code institute only showing when the user didn't upload their own img-->
             <div class="d-none d-md-block col-md-6 masthead-image">
                 {% if "placeholder" in post.image.url %}
                 <img class="card-img-top post-img"
@@ -43,6 +46,7 @@
     </div>
 </div>
 
+<!-- comment section -->
 <div class="container">
     <div class="row">
         <div class="col card mt-3 left top">
@@ -70,7 +74,7 @@
                             {% else %}
                             <span class="text-secondary"><i class="fa-solid fa-heart"></i></span>
                             {% endif %}
-                            <span class="text-secondary text-red">{{ post.number_of_likes }}</span>
+                            <span class="text-secondary">{{ post.number_of_likes }}</span>
                         </strong>
                     </div>
                     <div class="col-2 p-0">
@@ -90,6 +94,7 @@
         </div>
     </div>
     {% if user.is_authenticated %}
+    <!-- when the user is logged in, this section will display otherwise is hidden -->
     <div class="row d-flex card-bg">
         <div class="card p-2 card-bg">
             <h3>Comments:</h3>

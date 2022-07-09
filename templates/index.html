@@ -97,6 +97,7 @@
                                 <p class="card-text">{{ post.excerpt }}</p>
                             </a>
                             <hr />
+                            <!-- display the like icon + no.likes -->
                             <div class="card-info d-flex justify-content-between">
                                 <p class="card-text text-muted h6">{{ post.created_on }}</p>
                                 <p class="like-comment"><i class="far fa-heart"></i> {{ post.number_of_likes}}</p>
@@ -133,10 +134,11 @@
 
 </div>
 
-<!-- Add post button -->
+
 <hr />
 <div class="container d-flex mt-4">
     {% if user.is_authenticated %}
+    <!-- Add post button -->
     <div class="container">
         <div class="row">
             <span class="p-2 text-white text-center">Have something to share?</span>
