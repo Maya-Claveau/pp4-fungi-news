@@ -174,8 +174,13 @@ input#id_image {
     }
 
     .post-img {
-        max-height: 300px;
+        max-height: 200px;
         width: 100%;
+    }
+
+    img.card-img-top.post-img {
+        max-height: 150px;
+        max-width: 100%;
     }
 
     .btn-like {
