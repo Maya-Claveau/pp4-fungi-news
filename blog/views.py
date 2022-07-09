@@ -10,7 +10,9 @@ from .forms import CommentForm, PostForm, ContactForm
 class PostList(generic.ListView):
     """
     a post list based on the django generic ListView
-    the max number of posts per page is set to 6
+    the max number of posts per page is set to 6.
+    Copied from code institude walkthrough
+    'I think therefore I blog'.
     """
     model = Post
     queryset = Post.objects.filter(status=1).order_by('-created_on')
@@ -28,9 +30,8 @@ class PostDetail(View):
 
     def get(self, request, slug, *args, **kwargs):
         """
-        to render the post detail according
-        to their unique title, and also if user is logged
-        in, they can like the post as well as comments
+        to render all the published post with details
+        according to their unique title
         """
         queryset = Post.objects.filter(status=1)
         post = get_object_or_404(queryset, slug=slug)
@@ -55,7 +56,7 @@ class PostDetail(View):
         """
         to render the post detail according
         to their unique title, and also if user is logged
-        in, they can like the post as well as comments
+        in, they can like the post as well as comment
         """
         queryset = Post.objects.filter(status=1)
         post = get_object_or_404(queryset, slug=slug)
@@ -113,15 +114,22 @@ class AddPost(View):
     """allow user to add a post"""
 
     def get(self, request):
-        """to get add_post.html"""
-
+        """to get add_post.html
+        using PostForm
+        """
         context = {'form': PostForm()}
         return render(request, 'add_post.html', context)
 
     def post(self, request):
         """
         to allow user to post new articles to
-        the blog for others to see and interact with
+        the blog for others to see and interact with.
+        If the form is not valid it will display an error
+        message and return to the add post form. 
+
+        If is valid form, it will save and display a success
+        message to the user, as well as redirect to the
+        home page
         """
 
         if request.method == 'POST':
@@ -149,7 +157,10 @@ class AddPost(View):
 
 
 class AllPosts(generic.ListView):
-    """to get all the posts"""
+    """
+    to get all the posts, and display 6 posts
+    per page
+    """
     model = Post
     queryset = Post.objects.filter(status=1).order_by('-created_on')
     template_name = 'all_posts.html'
@@ -159,7 +170,7 @@ class AllPosts(generic.ListView):
 class SharedPostsByUsers(generic.ListView):
     """
     display all the posts added by currently
-    logged in user
+    logged in user, 6 posts per page
     """
     model = Post
     author = Post.author
@@ -173,7 +184,8 @@ class SharedPostsByUsers(generic.ListView):
 class UpdatePost(UpdateView):
     """
     update a post when user logged in
-    and shared a post
+    and shared a post, and they are the
+    author of that post
     """
     model = Post
     template_name = 'update_post.html'
@@ -191,7 +203,9 @@ class UpdatePost(UpdateView):
 
 class DeletePost(DeleteView):
     """
-    delete a shared post when user logged in
+    delete a post when user logged in
+    and shared a post, and they are the
+    author of that post
     """
     model = Post
     template_name = 'delete_post.html'
@@ -199,7 +213,11 @@ class DeletePost(DeleteView):
 
 
 class Contact(FormView):
-    """contact us page"""
+    """
+    contact us page, using the Comment Model
+    when sent successfully, will redirect to
+    the home page
+    """
     template_name = 'contact.html'
     form_class = ContactForm
     success_url = '/'

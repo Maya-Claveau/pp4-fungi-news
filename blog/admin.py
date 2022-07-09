@@ -8,7 +8,7 @@ class PostAdmin(SummernoteModelAdmin):
     """
     use summernote for the blog content,
     and customise the admin panel which showing only
-    tile, status and created_on. Plus a search field
+    tile, author, status and created_on. Plus a search field
     on the title and content.
     """
     list_display = ('title', 'author', 'status', 'created_on')
