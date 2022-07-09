@@ -78,6 +78,7 @@
         </nav>
 
         <!-- display the alert messages, took from code Institute walkthrough I think therefore I blog -->
+
         <div class="container">
             <div class="row">
                 <div class="col-md-8 offset-md-2">
@@ -129,15 +130,9 @@
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/4c01cc9050.js" crossorigin="anonymous"></script>
 
-    <!-- javascript code for the dismiss time out of alert messages -->
+
+    <!-- javascript code for underline the current viewing page -->
     <script>
-        setTimeout(function () {
-            let messages = document.getElementById("alert-msg");
-            let alert = new bootstrap.Alert(messages);
-            alert.close();
-        }, 3000);
-
-
         function highlightCurrent() {
             const curPage = document.URL;
             const links = document.getElementsByTagName('a');
