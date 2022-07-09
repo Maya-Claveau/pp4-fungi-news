@@ -30,10 +30,10 @@
                 {% endif %}
                 <div class="mt-4 mb-3 text-center">
                     <button class="btn btn-lg btn-success btn-block me-1" type="submit">{% trans "Sign In" %}</button>
-                    <a href="{% provider_login_url 'google' %}" aria-pressed="true">
-                        <button class="btn btn-primary btn-lg btn-block">Login with <i class="fab fa-google"></i>
-                        </button>
-                    </a>
+                    <button class="btn btn-primary btn-lg btn-block"><a href="{% provider_login_url 'google' %}"
+                            role="button" aria-pressed="true">Login
+                            with <i class="fab fa-google"></i></a>
+                    </button>
                 </div>
             </form>
         </div>
