@@ -6,12 +6,14 @@
 
 {% block header %}
 
-
 <div class="container-fluid bg-img" title="Man wearing VR glasses with Tech board">
     <div class="row p-4">
         <div class="col-12 col-md-6 col-lg-4 d-flex flex-column align-self-center mt-4">
             <h1 class="fw-bold text-white text-center text-md-start mb-1">NFT News Blog</h1>
+
             {% if user.is_authenticated %}
+            <!-- logged in user will see this section as home page with Blog and Add post button-->
+
             <p class="fs-5 mt-2 text-white text-center text-md-start">Welcome back to Fungi News! Check out our
                 Blog for the latest news.
             </p>
@@ -19,19 +21,21 @@
                 not share it with our comminity.
             </p>
 
-            <div class="gap-4 d-flex justify-content-center justify-content-md-start text-white">
+            <div class="gap-3 d-flex justify-content-center justify-content-md-start text-white">
                 <a href="{% url 'all_posts' %}">
                     <button class="btn btn-outline-info btn-lg px-4 me-sm-3 fw-bold">Blog</button>
                 </a>
                 <a href="{% url 'add_post' %}">
-                    <button class="btn btn-outline-info btn-lg px-4 me-sm-3 fw-bold">Add</button>
+                    <button class="btn btn-outline-info btn-lg px-4 me-sm-3 fw-bold">AddPost</button>
                 </a>
             </div>
+
             {% else %}
+            <!-- Not logged in user will see this section as home page with Signup and Login button -->
 
             <p class="fs-5 mb-4 text-white text-center text-md-start">Welcome to Fungi News. A place to get the
                 latest update and trendy news about NFT, where you also have the opportunity to share your NFT
-                enthusiastic with others like you.
+                enthusiasm with others like you.
             </p>
             <div class="gap-3 d-flex justify-content-center justify-content-md-start">
                 <a href="{% url 'account_signup' %}">

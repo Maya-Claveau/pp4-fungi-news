@@ -19,6 +19,8 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
     <title>Fungi News</title>
+
+    <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="{% static 'media/favicon.ico' %}">
 
 
@@ -31,8 +33,10 @@
         <nav class="navbar navbar-expand-md me-2 navbar-light mynavbar">
             <div class="container-fluid">
                 <div class="logo-bg">
-                    <img src="https://res.cloudinary.com/mayathebee/image/upload/v1656256610/static/images/logo-f_xeapzf.svg"
-                        alt="logo of F">
+                    <a href="{% url 'home' %}"><img
+                            src="https://res.cloudinary.com/mayathebee/image/upload/v1656256610/static/images/logo-f_xeapzf.svg"
+                            alt="logo of F">
+                    </a>
                 </div>
                 <a class="navbar-brand brand-name-link" href="{% url 'home' %}"></a><span class="brand-name">Fungi
                     News</span></a>
