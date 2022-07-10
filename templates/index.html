@@ -65,13 +65,13 @@
             <div class="row">
                 {% for post in post_list %}
                 <div class="col-md-4">
-                    <div class="card mb-4">
+                    <div class="card mb-4 shadow-lg p-3 mb-5 bg-light bg-gradient rounded">
                         <div class="card-body">
                             <div class="image-container d-flex justify-content-center">
                                 {% if "placeholder" in post.image.url %}
                                 <img src="
                                 https://res.cloudinary.com/mayathebee/image/upload/v1657443756/static/images/nft-placeholder-min_vxjo04.avif"
-                                    class="card-img-top post-img" width="445" height="250" alt="NFT image">
+                                    class="card-img-top post-img" width="423" height="250" alt="NFT image">
                                 {% else %}
                                 <img src=" {{ post.image.url }} " class="card-img-top post-img"
                                     alt="An uploaded image from the user">
@@ -83,12 +83,12 @@
                             <div class="container d-flex flex-row-reverse">
                                 <!-- update post button -->
                                 <a href="{% url 'update_post' post.slug %}" class="p-2">
-                                    <button type="button" class="btn btn-outline-success edit-btn">Update</button>
+                                    <button type="button" class="btn btn-success edit-btn">Update</button>
                                 </a>
 
                                 <!-- delete post button -->
                                 <a href="{% url 'delete_post' post.slug %}" class="p-2">
-                                    <button type="button" class="btn btn-outline-danger delete-btn">Delete</button>
+                                    <button type="button" class="btn btn-danger delete-btn">Delete</button>
                                 </a>
                             </div>
                             {% endif %}
