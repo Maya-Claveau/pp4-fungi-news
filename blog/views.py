@@ -15,7 +15,7 @@ class PostList(generic.ListView):
     'I think therefore I blog'.
     """
     model = Post
-    queryset = Post.objects.filter(status=1).order_by('-created_on')
+    queryset = Post.objects.filter(status=1).order_by('-created_on')  # noqa: E501
     template_name = 'index.html'
     paginate_by = 6
 
@@ -33,7 +33,7 @@ class PostDetail(View):
         to render all the published post with details
         according to their unique title
         """
-        queryset = Post.objects.filter(status=1)
+        queryset = Post.objects.filter(status=1)  # noqa: E501
         post = get_object_or_404(queryset, slug=slug)
         comments = post.comments.order_by('created_on')
         liked = False
@@ -160,7 +160,7 @@ class AllPosts(generic.ListView):
     per page
     """
     model = Post
-    queryset = Post.objects.filter(status=1).order_by('-created_on')
+    queryset = Post.objects.filter(status=1).order_by('-created_on')  # noqa: E501
     template_name = 'all_posts.html'
     paginate_by = 6
 

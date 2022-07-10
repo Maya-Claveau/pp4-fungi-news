@@ -33,5 +33,92 @@ Site user’s main objectives are:
 ------
 
 ## **Project planning**
+<br>
 
 ### **User Stories**
+The tasks users can perform depends on their role. On this site, there are admin, first time user and returned users, tasks that they have the authorization to perform are shown in below table, as well as their associated User Stories from [Github](https://github.com/Maya-Claveau/pp4-fungi-news/projects/1).
+
+
+<img src="https://res.cloudinary.com/mayathebee/image/upload/v1657478028/static/images/user_stories_with_tasks_xmsacw.jpg" width="800">
+
+<br>
+
+### **Database Structure**
+
+Below is the Database structure that this project is based on. There are User, Post and Comment tables, you can also see their relationships between each table.
+
+<img src="https://res.cloudinary.com/mayathebee/image/upload/v1657479550/static/images/database_structure_au8tqz.jpg" width="800">
+
+<br>
+
+### **WireFrames**
+
+<details><summary>Desktop Wireframes</summary>
+<img src="https://res.cloudinary.com/mayathebee/image/upload/v1657480163/static/images/funginews%20img/desktop-home-page_p8qztm.jpg" width="800">
+<img src="https://res.cloudinary.com/mayathebee/image/upload/v1657480163/static/images/funginews%20img/desktop-home-page-pt2_cwdbgn.jpg" width="800">
+<img src="https://res.cloudinary.com/mayathebee/image/upload/v1657480163/static/images/funginews%20img/desktop-signup-form_b0mpnc.jpg" width="800">
+<img src="https://res.cloudinary.com/mayathebee/image/upload/v1657480163/static/images/funginews%20img/desktop-login-form_tn1jr5.jpg" width="800">
+<img src="https://res.cloudinary.com/mayathebee/image/upload/v1657480163/static/images/funginews%20img/desktop-home-page-footer_hg331a.jpg" width="800">
+</details>
+
+<details><summary>Mobile Wireframes</summary>
+<img src="https://res.cloudinary.com/mayathebee/image/upload/v1657480164/static/images/funginews%20img/mob-home-page_pt5hkv.jpg" width="400">
+<img src="https://res.cloudinary.com/mayathebee/image/upload/v1657480164/static/images/funginews%20img/mob-hope-page-menu_c55ruj.jpg" width="400">
+<img src="https://res.cloudinary.com/mayathebee/image/upload/v1657480164/static/images/funginews%20img/mob-signup_wnjuix.jpg" width="400">
+<img src="https://res.cloudinary.com/mayathebee/image/upload/v1657480163/static/images/funginews%20img/mob-signup-form_qbp5en.jpg" width="400">
+<img src="https://res.cloudinary.com/mayathebee/image/upload/v1657480164/static/images/funginews%20img/mob-login_dpi4ak.jpg" width="400">
+<img src="https://res.cloudinary.com/mayathebee/image/upload/v1657480164/static/images/funginews%20img/mob-home-page-footer_gmwbcv.jpg" width="400">
+</details>
+
+<br>
+
+### **Font and color**
+
+#### **Font**
+I chose Inter because it looked nice and clean, Most importantly, it is easy to read. <details><summary>See here</summary>
+<img src="https://res.cloudinary.com/mayathebee/image/upload/v1657481182/static/images/funginews%20img/font_vhodoz.jpg"></details>
+
+#### **Color**
+I chose this colour palette, because it looks simple and classy.
+<details><summary>Color palette</summary>
+<img src="https://res.cloudinary.com/mayathebee/image/upload/v1657481510/static/images/funginews%20img/color_palettes_2_nbg3jf.jpg"></details>
+
+------
+
+## **Installations**
+
+Below are the installations we need before writing any code
+<br>
+
+Install the server to use when deploy on Heroku
+  ```sh
+  pip3 install django gunicorn
+  ```
+
+Supporting libraries:
+  * Postgresql and psycopg2
+  ```sh
+  pip3 install dj_database_url psycopg2
+  ```
+  * to run Cloudinary
+  ```sh
+  pip3 install dj3-cloudinary-storage
+  ```
+  Creat file list:
+  * create requirement.txt
+  ```sh
+  pip3 freeze --local > requirements.txt
+  ```
+  * create new django project
+  ```sh
+  django-admin startproject funginews .
+  ```
+  * create blog app
+  ```sh
+  python3 manage.py startapp blog
+  ```
+
+
+
+
+The project has involved by itself during development stage, here are the details:
