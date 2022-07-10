@@ -125,7 +125,7 @@ class AddPost(View):
         to allow user to post new articles to
         the blog for others to see and interact with.
         If the form is not valid it will display an error
-        message and return to the add post form. 
+        message and return to the add post form.
 
         If is valid form, it will save and display a success
         message to the user, as well as redirect to the
