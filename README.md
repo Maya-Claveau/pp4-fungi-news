@@ -1,6 +1,7 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Welcome to **[Fungi News](https://funginews.herokuapp.com/)**
 
-Welcome Maya-Claveau,
+<img src="assets/screenshots/mockup-final.png" width="800">
+
 
 This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
 

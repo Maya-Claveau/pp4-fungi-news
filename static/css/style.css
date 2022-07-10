@@ -158,7 +158,6 @@ input#id_image {
         height: 400px;
         background-repeat: no-repeat;
         background-position: center;
-        background-attachment: fixed;
     }
 
     .bg-img h1 {
