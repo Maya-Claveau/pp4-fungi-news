@@ -110,11 +110,6 @@ a {
     color: #fdfdff !important;
 }
 
-/* .post-img {
-    max-height: 250px;
-    max-width: 450px;
-} */
-
 .btn-like {
     border-style: none;
     background-color: transparent;
@@ -168,11 +163,6 @@ input#id_image {
         margin-top: 10px;
     }
 
-    /* .post-img {
-        max-height: 200px;
-        max-width: 100%;
-    } */
-
     .btn-like {
         font-size: 20px;
     }
@@ -217,11 +207,6 @@ input#id_image {
         margin-bottom: 8px;
         margin-top: 15px;
     }
-
-    /* .post-img {
-        max-height: 450px;
-        max-width: 100%;
-    } */
 
     .post-title-author {
         text-align: center;
