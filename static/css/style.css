@@ -136,7 +136,7 @@ input#id_image {
     font-size: larger;
 }
 
-.social-links:hover {
+.social-links>i:hover {
     color: yellow;
 }
 
