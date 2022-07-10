@@ -30,10 +30,11 @@
                 <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
                 {% endif %}
                 <div class="mt-4 mb-3 text-center">
-                    <button class="btn btn-lg btn-success btn-block me-1" type="submit">{% trans "Log In" %}</button>
+                    <button class="btn btn-lg btn-success me-1" type="submit">{% trans "Log In" %}</button>
                     <!-- allow user to use google account to login as an option -->
-                    <button class="btn btn-primary btn-lg btn-block"><a href="{% provider_login_url 'google' %}"
-                            role="button" aria-pressed="true">Login
+                    <button class="btn btn-primary btn-lg">
+                        <a href="{% provider_login_url 'google' %}" role="button" class="link-light"
+                            aria-pressed="true">Login
                             with <i class="fab fa-google"></i></a>
                     </button>
                 </div>
