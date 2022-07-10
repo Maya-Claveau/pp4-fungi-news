@@ -118,7 +118,11 @@ Supporting libraries:
   python3 manage.py startapp blog
   ```
 
+## **23 Days Later**
 
+After 23 days of tears and sweat, I can finally present a functional blog site.
 
+By clicking [Fungi News](https://funginews.herokuapp.com/) first thing you will see is the landing page. Here you can see the navbar on the top which has links for Contact us, Blog, Signup or Login.
 
-The project has involved by itself during development stage, here are the details:
+<details><summary>Desktop Landing Page</summary>
+<img src="https://res.cloudinary.com/mayathebee/image/upload/v1657485555/static/images/funginews%20img/6md6c2_gw5ep4.gif">
