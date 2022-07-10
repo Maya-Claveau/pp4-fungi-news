@@ -35,11 +35,11 @@
             <!-- placeholder img taken from code institute only showing when the user didn't upload their own img-->
             <div class="d-none d-md-block col-md-6 masthead-image">
                 {% if "placeholder" in post.image.url %}
-                <img class="card-img-top post-img"
-                    src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg"
-                    alt="A laptop with code on the screen">
+                <img class="card-img-top post-img img-fluid"
+                    src="https://res.cloudinary.com/mayathebee/image/upload/v1657443756/static/images/nft-placeholder-min_vxjo04.avif"
+                    width="100%" height="250" alt="NFT image">
                 {% else %}
-                <img src=" {{ post.image.url }} " class="card-img-top post-img" width="423" height="250"
+                <img src=" {{ post.image.url }} " class="card-img-top post-img img-fluid" width="100%" height="250"
                     alt="An uploaded image from the user">
                 {% endif %}
             </div>

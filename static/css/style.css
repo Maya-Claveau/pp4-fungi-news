@@ -110,15 +110,10 @@ a {
     color: #fdfdff !important;
 }
 
-.post-img {
+/* .post-img {
     max-height: 250px;
     max-width: 450px;
-}
-
-.img.card-img-top.post-img {
-    max-height: 250px;
-    max-width: 450px;
-}
+} */
 
 .btn-like {
     border-style: none;
@@ -173,15 +168,10 @@ input#id_image {
         margin-top: 10px;
     }
 
-    .post-img {
+    /* .post-img {
         max-height: 200px;
-        width: 100%;
-    }
-
-    img.card-img-top.post-img {
-        max-height: 150px;
-        max-width: 254px;
-    }
+        max-width: 100%;
+    } */
 
     .btn-like {
         font-size: 20px;
@@ -228,15 +218,10 @@ input#id_image {
         margin-top: 15px;
     }
 
-    .post-img {
-        max-height: 450px;
-        width: 100%;
-    }
-
-    .img.card-img-top.post-img {
+    /* .post-img {
         max-height: 450px;
         max-width: 100%;
-    }
+    } */
 
     .post-title-author {
         text-align: center;
