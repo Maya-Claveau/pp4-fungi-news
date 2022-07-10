@@ -144,9 +144,7 @@ class AddPost(View):
                 messages.success(request, 'Your post is awaiting approval.')
                 return redirect('home')
             else:
-                messages.error(request,
-                    'Error: Something went wrong,'
-                    ' please try again.')
+                messages.error(request, 'Error: Something went wrong, please try again.')  # noqa: E501
                 context = {'form': form}
                 return render(request, 'add_post.html', context)
         else:
