@@ -23,7 +23,7 @@
             <div class="row">
                 {% for post in post_list %}
                 <div class="col-md-4">
-                    <div class="card mb-4">
+                    <div class="card card shadow-lg mb-5 bg-light bg-gradient rounded">
                         <div class="card-body">
                             <div class="image-container">
                                 {% if "placeholder" in post.image.url %}
@@ -40,16 +40,17 @@
                             <div class="container d-flex flex-row-reverse p-0">
                                 <div class="row">
                                     <div class="col-12">
-                                        <!-- update post button -->
-                                        <a href="{% url 'update_post' post.slug %}">
-                                            <button type="button"
-                                                class="btn btn-outline-success edit-btn">Update</button>
-                                        </a>
 
                                         <!-- delete post button -->
-                                        <a href="{% url 'delete_post' post.slug %}">
+                                        <a href="{% url 'delete_post' post.slug %}" class="p-2">
                                             <button type="button"
-                                                class="btn btn-outline-danger delete-btn">Delete</button>
+                                                class="btn btn-danger bg-danger bg-gradient delete-btn">Delete</button>
+                                        </a>
+
+                                        <!-- update post button -->
+                                        <a href="{% url 'update_post' post.slug %}" class="p-2">
+                                            <button type="button"
+                                                class="btn btn-success bg-success bg-gradient edit-btn">Update</button>
                                         </a>
                                     </div>
                                 </div>

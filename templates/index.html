@@ -65,7 +65,7 @@
             <div class="row">
                 {% for post in post_list %}
                 <div class="col-md-4">
-                    <div class="card mb-4 shadow-lg p-3 mb-5 bg-light bg-gradient rounded">
+                    <div class="card shadow-lg mb-5 bg-light bg-gradient rounded">
                         <div class="card-body">
                             <div class="image-container d-flex justify-content-center">
                                 {% if "placeholder" in post.image.url %}
@@ -83,12 +83,14 @@
                             <div class="container d-flex flex-row-reverse">
                                 <!-- update post button -->
                                 <a href="{% url 'update_post' post.slug %}" class="p-2">
-                                    <button type="button" class="btn btn-success edit-btn">Update</button>
+                                    <button type="button"
+                                        class="btn btn-success bg-success bg-gradient edit-btn">Update</button>
                                 </a>
 
                                 <!-- delete post button -->
                                 <a href="{% url 'delete_post' post.slug %}" class="p-2">
-                                    <button type="button" class="btn btn-danger delete-btn">Delete</button>
+                                    <button type="button"
+                                        class="btn btn-danger bg-danger bg-gradient delete-btn">Delete</button>
                                 </a>
                             </div>
                             {% endif %}
