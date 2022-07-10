@@ -136,6 +136,10 @@ input#id_image {
     font-size: larger;
 }
 
+.social-links:hover {
+    color: yellow;
+}
+
 
 /* for medium screen size between 750px and 1200px width */
 @media only screen and (max-width: 1199px) and (min-width: 768px) {
