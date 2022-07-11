@@ -19,7 +19,7 @@
 
     <div class="row">
         <div class="col-12 col-md-4 offset-md-4">
-            <form action="{{ signup_url }}" method="POST" class="form-group mb-1 text-white">
+            <form method="POST" class="form-group mb-1 text-white">
                 {% csrf_token %}
                 {{ form|crispy }}
                 <button type="submit" class="btn btn-lg btn-success btn-block mt-4 mb-3">Sign Up</button>
