@@ -71,6 +71,9 @@
             <div class="row">
                 {% endif %}
                 {% endfor %}
+                <a href="{% url 'add_post' %}" role="button" type="submit" class="btn btn-lg btn-outline-info">
+                    Add Post
+                </a>
             </div>
             <!-- if the user have NOT shared any post, the share button below will display -->
             {% else %}
