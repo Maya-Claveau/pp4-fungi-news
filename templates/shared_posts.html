@@ -41,15 +41,15 @@
                             {% if user.id == post.author.id %}
                             <div class="container d-flex flex-row-reverse">
                                 <!-- update post button -->
-                                <a href="{% url 'update_post' post.slug %}" class="p-2">
-                                    <button type="button"
-                                        class="btn btn-success bg-success bg-gradient edit-btn">Update</button>
+                                <a href="{% url 'update_post' post.slug %}" role="button"
+                                    class="btn btn-success bg-success bg-gradient edit-btn">
+                                    Update
                                 </a>
 
                                 <!-- delete post button -->
-                                <a href="{% url 'delete_post' post.slug %}" class="p-2">
-                                    <button type="button"
-                                        class="btn btn-danger bg-danger bg-gradient delete-btn">Delete</button>
+                                <a href="{% url 'delete_post' post.slug %}" role="button"
+                                    class="btn btn-danger bg-danger bg-gradient delete-btn me-2">
+                                    Delete
                                 </a>
                             </div>
                             {% endif %}
@@ -82,8 +82,8 @@
                     <span>Start sharing.</span>
                 </div>
                 <div class="mt-4">
-                    <a href="{% url 'add_post' %}">
-                        <button type="submit" class="btn btn-lg btn-outline-info">Share Post</button>
+                    <a href="{% url 'add_post' %}" role="button" type="submit" class="btn btn-lg btn-outline-info">
+                        Share Post
                     </a>
                 </div>
             </div>
