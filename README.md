@@ -41,6 +41,15 @@ The tasks users can perform depends on their role. On this site, there are admin
 
 <img src="https://res.cloudinary.com/mayathebee/image/upload/v1657478028/static/images/user_stories_with_tasks_xmsacw.jpg" width="800">
 
+#### **Logic**
+I decided that any new post added by the user need approval, reasons being:
+- I have no one to moderate the post, that is the reason any posts coming from user needs to be approved by admin first
+- To prevent spam, and/or post that is unrelated to nft
+- To make sure the language is appropriate
+- To reach the max storage in database in short time period filled with trash data
+- A bot can post massive amount of trash post which will cause the website been taken down
+- Last but not least, because of this nature, in the admin panel under post, the drop down menu only has the delete option, without “approval selected posts”, because naturally you would have to go through the content before approving the post.
+
 <br>
 
 ### **Database Structure**
@@ -158,66 +167,95 @@ The project evolved by itself during the development stage, and I am made change
 
 Testing was conducted continuously throughout the development of this project. Google dev tools were used mainly, to ensure things run smoothly and as expected. More details, please refer to [TESTING.md](TESTING.md) file.
 
-## **Code validation**
+### **Code Validation**
+Details on code validation can also be found in the [TESTING.md](TESTING.md) file.
 
-CSS code passes the validator without errors, however, there are some warnings, please see details in the screenshot. I looked into them, and don’t really know how to fix them at the moment, so I just left them there.
+## **Tech Stack**
+### **Language**
 
-<details>
-<summary>CSS</summary>
-<img src="https://res.cloudinary.com/mayathebee/image/upload/v1657527876/static/images/funginews%20img/testing/css/css_d3lklc.jpg">
-<summary>CSS warnings</summary>
-<img src="https://res.cloudinary.com/mayathebee/image/upload/v1657527876/static/images/funginews%20img/testing/css/css_warnings_w5bhwy.jpg">
-</details>
+This project is a Full-Stack site based on business logic used to control a centrally-owned dataset. With the authentication it provide role-based access to the data.
+
+Main programming languages used are:
+
+- **python**
+- **Django**
+- **HTML**
+- **CSS**
+- **Javascript**
+- **postgresql**
+- **psycopg2**
+
+### **Tools**
+- [Github](https://github.com/) for store and version control of the code
+
+- [Gitpod](https://gitpod.io/workspaces) for editing code
+
+- [Heroku](https://heroku.com/) for deployment
+
+- [Lucidchart](https://www.lucidchart.com/pages/) for creating database relationship
+
+- [Cloudinary](https://cloudinary.com) for store the images and css files used in this project
+
+- [Lightshot](https://app.prntscr.com/en/index.html) for creating screenshots
+
+- [GitHub Wiki TOC generator](https://ecotrust-canada.github.io/markdown-toc/) for generating table of content for README.md file
+
+- [techsini.com](https://techsini.com/multi-mockup/index.php) for generating the mock up
+
+- [Freepik](https://www.freepik.com/) for downloading the nft images
+
+- [Figma](https://www.figma.com/) for making the logo
+
+- [Bootstrap](https://getbootstrap.com/) was used to speed up the design the style and responsiveness of the website
 
 
-<details><summary>HTML</summary>
-<summary>index.html</summary>
-<img src="https://res.cloudinary.com/mayathebee/image/upload/v1657527874/static/images/funginews%20img/testing/html/index_yvksha.jpg">
-<summary>contact.html</summary>
-<img src="https://res.cloudinary.com/mayathebee/image/upload/v1657527874/static/images/funginews%20img/testing/html/contact_hzzg0l.jpg">
-<summary>all_posts.html</summary>
-<img src="https://res.cloudinary.com/mayathebee/image/upload/v1657527874/static/images/funginews%20img/testing/html/blog_lortns.jpg">
-<summary>signup.html</summary>
-<img src="https://res.cloudinary.com/mayathebee/image/upload/v1657527875/static/images/funginews%20img/testing/html/sign_up_kmyfyk.jpg">
-<summary>login.html</summary>
-<img src="https://res.cloudinary.com/mayathebee/image/upload/v1657527875/static/images/funginews%20img/testing/html/login_p9h95q.jpg">
-<summary>logout.html</summary>
-<img src="https://res.cloudinary.com/mayathebee/image/upload/v1657527874/static/images/funginews%20img/testing/html/log_out_chu8cg.jpg">
-<summary>shared_posts.html</summary>
-<img src="https://res.cloudinary.com/mayathebee/image/upload/v1657527875/static/images/funginews%20img/testing/html/my_posts-_fixed_canjlu.jpg">
-<summary>add_post.html</summary>
-<img src="https://res.cloudinary.com/mayathebee/image/upload/v1657527874/static/images/funginews%20img/testing/html/add_post_without_summernote_hywcxv.jpg">
-<summary>update_post.html</summary>
-<img src="https://res.cloudinary.com/mayathebee/image/upload/v1657532711/static/images/funginews%20img/testing/html/update_post_tgvpve.jpg">
-<summary>delete_post.html</summary>
-<img src="https://res.cloudinary.com/mayathebee/image/upload/v1657532826/static/images/funginews%20img/testing/html/delete_post_bsijrm.png">
-</details>
+### **Difficulties I manage to overcome**
+Below are example of list of things I struggled with, there are many more that were not documented.
+- Alert Message doesn’t appear when signup or login
+- Like button icon doesn’t appear (font awesome problem)
+- Login btn doesn’t work on Login page
+- Deployed version: add post button not showing (turns out i wan’t logged in)
+- Sticky footer issue
+- Display author name when a new post is added: solution add “author” in admin.py file on the list_display field
+-  Update and delete wasn’t working: post.slug, and sccess_url = ‘/’
+- Display all posts shared by one user: logic – query from the db to specific use.id, ie: select all from posts table in db, then user id
+- ContactForm: Contact Form is not working. IntegrityError at /contact/
+IntegrityError at /contact NOT NULL constraint failed
+- Display message on success submit contact form: https://stackoverflow.com/questions/42848646/show-django-messages-inside-form-invalid-of-formview
+- Display a message and share post button when logged in user havn’t share anything yet
+- Excerpt issue: remove the summernotewidget solved it
 
-<details><summary>Python</summary>
-<summary>Blog - Admin.py</summary>
-<img src="https://res.cloudinary.com/mayathebee/image/upload/v1657527877/static/images/funginews%20img/testing/python/admin.py_vicyur.jpg">
-<summary>Blog - apps.py</summary>
-<img src="https://res.cloudinary.com/mayathebee/image/upload/v1657527877/static/images/funginews%20img/testing/python/app.py_pltlt8.jpg">
-<summary>Blog - forms.py</summary>
-<img src="https://res.cloudinary.com/mayathebee/image/upload/v1657527877/static/images/funginews%20img/testing/python/forms.py_dulqvh.jpg">
-<summary>Blog - models.py</summary>
-<img src="https://res.cloudinary.com/mayathebee/image/upload/v1657527878/static/images/funginews%20img/testing/python/models.py_fvc5r0.jpg">
-<summary>Blog - urls.py</summary>
-<img src="https://res.cloudinary.com/mayathebee/image/upload/v1657527878/static/images/funginews%20img/testing/python/urls.py-blog_yh1nnn.jpg">
-<summary>Blog - views.py</summary>
-<img src="https://res.cloudinary.com/mayathebee/image/upload/v1657527878/static/images/funginews%20img/testing/python/views.py_uflxmz.jpg">
-<summary>Funginews - asgi.py</summary>
-<img src="https://res.cloudinary.com/mayathebee/image/upload/v1657527877/static/images/funginews%20img/testing/python/asgi.py_mhmakf.jpg">
-<summary>Funginews - settings.py</summary>
-<img src="https://res.cloudinary.com/mayathebee/image/upload/v1657527878/static/images/funginews%20img/testing/python/settings.py_pcpbpp.jpg">
-<summary>Funginews - urls.py</summary>
-<img src="https://res.cloudinary.com/mayathebee/image/upload/v1657527878/static/images/funginews%20img/testing/python/urls.py-funginews_kmtpx7.jpg">
-<summary>Funginews - wsgi.py</summary>
-<img src="https://res.cloudinary.com/mayathebee/image/upload/v1657527879/static/images/funginews%20img/testing/python/wsgi.py_fnwfqi.jpg">
-<summary>Register - apps.py</summary>
-<img src="https://res.cloudinary.com/mayathebee/image/upload/v1657527877/static/images/funginews%20img/testing/python/apps.py_-_register_qqmtnc.jpg">
-<summary>Register - forms.py</summary>
-<img src="https://res.cloudinary.com/mayathebee/image/upload/v1657527877/static/images/funginews%20img/testing/python/forms.py_-_register_ysh9ay.jpg">
-<summary>Register - views.py</summary>
-<img src="https://res.cloudinary.com/mayathebee/image/upload/v1657527878/static/images/funginews%20img/testing/python/views.py_-_register_jkzaop.jpg">
-</details>
+## **Credits**
+
+- Code Institute's [I think therefor I blog](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+FST101+2021_T1/courseware/b31493372e764469823578613d11036b/fe4299adcd6743328183aab4e7ec5d13/)
+
+- Tutor support from Code Institute for helping me out when I got stuck. Special shout out to Ger, who helped me to solve multiple problems that was driving me nuts.
+
+- Fellow students on slack also helped me a lot, is such a amazing community to learn and grow together
+
+- [Stackoverflow](https://stackoverflow.com/) for researching massive amount of things
+
+- Youtube videos for watching people building things with the features I needed, especially the google login part
+
+- Google in general, I can't remember the list of things and webiste I searched
+
+<br>
+
+## **Acknowledgments**
+My mentor Mr. ADEGBENGA ADEYE for his continuous structured feedback and support. My project won't be the same without his valuable advice.
+
+Tutor support at Code Institute. They are always there when I need help, I am really grateful for that.
+
+Fellow students on the Slack community for their help and support, this amazing community constantly inspires me and it feels nice to learn and grow with them together.
+
+Most importantly, I would like to thank my husband, my friends Elina and David, who supported me every step in my coding journey, and my son who was a brave boy even when he was sick and I couldn't give him much attention as I should during the last two days of the development of this project.
+
+
+THANK YOU ALL!!!
+
+
+
+Disclaimer: I am aware of this readme is not up to standard, there are tons of things I would like to talk about, and have the notes and screenshots. Unfortunately, I m running out of time and had to do it this way. It is also possible that I missed some credit to the source of my code. Please accept my apology.
+
+
+
