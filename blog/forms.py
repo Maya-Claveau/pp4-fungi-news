@@ -33,10 +33,6 @@ class PostForm(forms.ModelForm):
             'image',
         )
 
-        widgets = {
-            'content': SummernoteWidget(),
-        }
-
 
 class ContactForm(forms.ModelForm):
     """
