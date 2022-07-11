@@ -124,5 +124,100 @@ After 23 days of tears and sweat, I can finally present a functional blog site.
 
 By clicking [Fungi News](https://funginews.herokuapp.com/) first thing you will see is the landing page. Here you can see the navbar on the top which has links for Contact us, Blog, Signup or Login.
 
-<details><summary>Desktop Landing Page</summary>
-<img src="https://res.cloudinary.com/mayathebee/image/upload/v1657485555/static/images/funginews%20img/6md6c2_gw5ep4.gif">
+If you scroll down you will see the articles section with the latest posts, along with info like title, author, a short snippet of the post, date and time when the post was created as well as a number of likes on that particular post.
+
+If you are logged in, you will see two buttons, add post and my post, this will take you to the respective page. If you are not logged in you will just see the footer with social links icons of Twitter, Telegram, Reddit, Instagram, and Facebook. At the very bottom of the page is my Github repo link where you can see all the code and this file to read through how I created this project.
+
+Desktop
+<details><summary>Not logged in user</summary>
+<img src="https://res.cloudinary.com/mayathebee/image/upload/v1657529651/static/images/funginews%20img/first_time_user_exiqpj.gif">
+</details>
+
+<details><summary>Logged in user</summary>
+<img src="https://res.cloudinary.com/mayathebee/image/upload/v1657529153/static/images/funginews%20img/logged_in_plhf3g.gif">
+</details>
+
+<br>
+
+Mobile
+<details><summary>Not logged in user
+</summary>
+<img src="https://res.cloudinary.com/mayathebee/image/upload/v1657530701/static/images/funginews%20img/new_user-mob_sttoph.gif">
+</details>
+
+<details><summary>Logged in User
+</summary>
+<img src="https://res.cloudinary.com/mayathebee/image/upload/v1657530701/static/images/funginews%20img/logged_in_mobile_wvp8ii.gif">
+</details>
+
+The project evolved by itself during the development stage, and I am made changes since the wireframes were done, and added features that I didn’t think about initially. Overall, I am quite happy about how it turned out.
+
+------
+
+## **Testing**
+
+Testing was conducted continuously throughout the development of this project. Google dev tools were used mainly, to ensure things run smoothly and as expected. More details, please refer to [TESTING.md](TESTING.md) file.
+
+## **Code validation**
+
+CSS code passes the validator without errors, however, there are some warnings, please see details in the screenshot. I looked into them, and don’t really know how to fix them at the moment, so I just left them there.
+
+<details>
+<summary>CSS</summary>
+<img src="https://res.cloudinary.com/mayathebee/image/upload/v1657527876/static/images/funginews%20img/testing/css/css_d3lklc.jpg">
+<summary>CSS warnings</summary>
+<img src="https://res.cloudinary.com/mayathebee/image/upload/v1657527876/static/images/funginews%20img/testing/css/css_warnings_w5bhwy.jpg">
+</details>
+
+
+<details><summary>HTML</summary>
+<summary>index.html</summary>
+<img src="https://res.cloudinary.com/mayathebee/image/upload/v1657527874/static/images/funginews%20img/testing/html/index_yvksha.jpg">
+<summary>contact.html</summary>
+<img src="https://res.cloudinary.com/mayathebee/image/upload/v1657527874/static/images/funginews%20img/testing/html/contact_hzzg0l.jpg">
+<summary>all_posts.html</summary>
+<img src="https://res.cloudinary.com/mayathebee/image/upload/v1657527874/static/images/funginews%20img/testing/html/blog_lortns.jpg">
+<summary>signup.html</summary>
+<img src="https://res.cloudinary.com/mayathebee/image/upload/v1657527875/static/images/funginews%20img/testing/html/sign_up_kmyfyk.jpg">
+<summary>login.html</summary>
+<img src="https://res.cloudinary.com/mayathebee/image/upload/v1657527875/static/images/funginews%20img/testing/html/login_p9h95q.jpg">
+<summary>logout.html</summary>
+<img src="https://res.cloudinary.com/mayathebee/image/upload/v1657527874/static/images/funginews%20img/testing/html/log_out_chu8cg.jpg">
+<summary>shared_posts.html</summary>
+<img src="https://res.cloudinary.com/mayathebee/image/upload/v1657527875/static/images/funginews%20img/testing/html/my_posts-_fixed_canjlu.jpg">
+<summary>add_post.html</summary>
+<img src="https://res.cloudinary.com/mayathebee/image/upload/v1657527874/static/images/funginews%20img/testing/html/add_post_without_summernote_hywcxv.jpg">
+<summary>update_post.html</summary>
+<img src="https://res.cloudinary.com/mayathebee/image/upload/v1657532711/static/images/funginews%20img/testing/html/update_post_tgvpve.jpg">
+<summary>delete_post.html</summary>
+<img src="https://res.cloudinary.com/mayathebee/image/upload/v1657532826/static/images/funginews%20img/testing/html/delete_post_bsijrm.png">
+</details>
+
+<details><summary>Python</summary>
+<summary>Blog - Admin.py</summary>
+<img src="https://res.cloudinary.com/mayathebee/image/upload/v1657527877/static/images/funginews%20img/testing/python/admin.py_vicyur.jpg">
+<summary>Blog - apps.py</summary>
+<img src="https://res.cloudinary.com/mayathebee/image/upload/v1657527877/static/images/funginews%20img/testing/python/app.py_pltlt8.jpg">
+<summary>Blog - forms.py</summary>
+<img src="https://res.cloudinary.com/mayathebee/image/upload/v1657527877/static/images/funginews%20img/testing/python/forms.py_dulqvh.jpg">
+<summary>Blog - models.py</summary>
+<img src="https://res.cloudinary.com/mayathebee/image/upload/v1657527878/static/images/funginews%20img/testing/python/models.py_fvc5r0.jpg">
+<summary>Blog - urls.py</summary>
+<img src="https://res.cloudinary.com/mayathebee/image/upload/v1657527878/static/images/funginews%20img/testing/python/urls.py-blog_yh1nnn.jpg">
+<summary>Blog - views.py</summary>
+<img src="https://res.cloudinary.com/mayathebee/image/upload/v1657527878/static/images/funginews%20img/testing/python/views.py_uflxmz.jpg">
+<summary>Funginews - asgi.py</summary>
+<img src="https://res.cloudinary.com/mayathebee/image/upload/v1657527877/static/images/funginews%20img/testing/python/asgi.py_mhmakf.jpg">
+<summary>Funginews - settings.py</summary>
+<img src="https://res.cloudinary.com/mayathebee/image/upload/v1657527878/static/images/funginews%20img/testing/python/settings.py_pcpbpp.jpg">
+<summary>Funginews - urls.py</summary>
+<img src="https://res.cloudinary.com/mayathebee/image/upload/v1657527878/static/images/funginews%20img/testing/python/urls.py-funginews_kmtpx7.jpg">
+<summary>Funginews - wsgi.py</summary>
+<img src="https://res.cloudinary.com/mayathebee/image/upload/v1657527879/static/images/funginews%20img/testing/python/wsgi.py_fnwfqi.jpg">
+<summary>Register - apps.py</summary>
+<img src="https://res.cloudinary.com/mayathebee/image/upload/v1657527877/static/images/funginews%20img/testing/python/apps.py_-_register_qqmtnc.jpg">
+<summary>Register - forms.py</summary>
+<img src="https://res.cloudinary.com/mayathebee/image/upload/v1657527877/static/images/funginews%20img/testing/python/forms.py_-_register_ysh9ay.jpg">
+<summary>Register - views.py</summary>
+<img src="https://res.cloudinary.com/mayathebee/image/upload/v1657527878/static/images/funginews%20img/testing/python/views.py_-_register_jkzaop.jpg">
+</details>
