@@ -22,11 +22,13 @@
             </p>
 
             <div class="gap-3 d-flex justify-content-center justify-content-md-start text-white">
-                <a href="{% url 'all_posts' %}">
-                    <button class="btn btn-outline-info btn-md-lg px-4 me-sm-3 fw-bold">Blog</button>
+                <a href="{% url 'all_posts' %}" role="button"
+                    class="btn btn-outline-info btn-md-lg px-4 me-sm-3 fw-bold">
+                    Blog
                 </a>
-                <a href="{% url 'add_post' %}">
-                    <button class="btn btn-outline-info btn-md-lg px-4 me-sm-3 fw-bold">Add Post</button>
+                <a href="{% url 'add_post' %}" role="button"
+                    class="btn btn-outline-info btn-md-lg px-4 me-sm-3 fw-bold">
+                    Add Post
                 </a>
             </div>
 
@@ -38,15 +40,11 @@
                 enthusiasm with others like you.
             </p>
             <div class="gap-3 d-flex justify-content-center justify-content-md-start">
-                <a href="{% url 'account_signup' %}">
-                    <button type="button" class="btn btn-info btn-lg px-4 me-sm-3 fw-bold">
-                        Sign Up
-                    </button>
+                <a href="{% url 'account_signup' %}" role="button" class="btn btn-info btn-lg px-4 me-sm-3 fw-bold">
+                    Sign Up
                 </a>
-                <a href="{% url 'account_login' %}">
-                    <button type="button" class="btn btn-outline-light btn-lg px-4 fw-bold">
-                        Login
-                    </button>
+                <a href="{% url 'account_login' %}" role="button" class="btn btn-outline-light btn-lg px-4 fw-bold">
+                    Login
                 </a>
             </div>
             {% endif %}
@@ -71,10 +69,10 @@
                                 {% if "placeholder" in post.image.url %}
                                 <img src="
                                 https://res.cloudinary.com/mayathebee/image/upload/v1657443756/static/images/nft-placeholder-min_vxjo04.avif"
-                                    class="card-img-top post-img img-fluid" width="100%" height="250" alt="NFT image">
+                                    class="card-img-top post-img img-fluid" height="250" alt="NFT image">
                                 {% else %}
-                                <img src=" {{ post.image.url }} " class="card-img-top post-img img-fluid" width="100%"
-                                    height="250" alt="An uploaded image from the user">
+                                <img src=" {{ post.image.url }} " class="card-img-top post-img img-fluid" height="250"
+                                    alt="An uploaded image from the user">
                                 {% endif %}
                             </div>
                             <p class="author">Author: {{ post.author }}</p>
@@ -83,13 +81,13 @@
                             <div class="container d-flex flex-row-reverse">
                                 <!-- update post button -->
                                 <a href="{% url 'update_post' post.slug %}" class="p-2">
-                                    <button type="button"
+                                    <button role="button"
                                         class="btn btn-success bg-success bg-gradient edit-btn">Update</button>
                                 </a>
 
                                 <!-- delete post button -->
                                 <a href="{% url 'delete_post' post.slug %}" class="p-2">
-                                    <button type="button"
+                                    <button role="button"
                                         class="btn btn-danger bg-danger bg-gradient delete-btn">Delete</button>
                                 </a>
                             </div>
@@ -137,8 +135,7 @@
 
 </div>
 
-
-<hr />
+<hr>
 <div class="container d-flex mt-4">
     {% if user.is_authenticated %}
     <!-- Add post button -->
@@ -146,7 +143,7 @@
         <div class="row">
             <span class="p-2 text-white text-center">Have something to share?</span>
             <a href="{% url 'add_post' %}" class="text-center p-2 mt-2 mb-3">
-                <button type="button" class="btn btn-outline-info px-4 fw-bold">
+                <button role="button" class="btn btn-outline-info px-4 fw-bold">
                     Add Post
                 </button>
             </a>
@@ -157,12 +154,13 @@
         <div class="row">
             <span class="p-2 text-white text-center">What you have shared so far?</span>
             <a href="{% url 'shared_posts' %}" class="text-center p-2 mt-2 mb-3">
-                <button type="button" class="btn btn-outline-info px-4 fw-bold">
+                <button role="button" class="btn btn-outline-info px-4 fw-bold">
                     My Posts
                 </button>
             </a>
         </div>
     </div>
     {% endif %}
+</div>
 
-    {% endblock %}
+{% endblock %}

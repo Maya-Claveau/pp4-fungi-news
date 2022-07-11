@@ -33,7 +33,6 @@ a {
 .brand-name {
     font-weight: 700;
     background: -webkit-linear-gradient(#62929e, #ffffff);
-    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-size: large;
