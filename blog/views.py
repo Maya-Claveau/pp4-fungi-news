@@ -3,6 +3,7 @@ from django.views import generic, View
 from django.views.generic.edit import UpdateView, DeleteView, FormView
 from django.http import HttpResponseRedirect
 from django.contrib import messages
+from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Post
 from .forms import CommentForm, PostForm, ContactForm
 
@@ -165,13 +166,14 @@ class AllPosts(generic.ListView):
     paginate_by = 6
 
 
-class SharedPostsByUsers(generic.ListView):
+class SharedPostsByUsers(LoginRequiredMixin, generic.ListView):
     """
     display all the posts added by currently
     logged in user, 6 posts per page
     """
     model = Post
     author = Post.author
+    login_url = 'account_login'
     template_name = 'shared_posts.html'
     paginate_by = 6
 

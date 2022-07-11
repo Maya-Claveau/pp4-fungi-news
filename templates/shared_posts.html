@@ -3,6 +3,8 @@
 {% block content %}
 {% load static %}
 
+{% if user.is_authenticated %}
+
 <!-- to view all posts shared by logged in user page -->
 <div class="container">
     <div class="row">
@@ -109,5 +111,10 @@
     {% endif %}
 
 </div>
+{% else %}
+
+Warning: Restricted access!
+
+{% endif %}
 
 {% endblock %}
